@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>تأمین برق صنایع از بورس انرژی — برق عادی، سبز و آزاد | داتیس آوان نیرو</title>
-  <meta name="description" content="تأمین برق عادی، برق سبز و برق آزاد از بورس انرژی برای مشترکین صنعتی و تجاری با دیماند بالای ۱۵۰ کیلووات؛ بررسی رایگان قبض و برآورد هزینه.">
+  <title>برق صنایع از بورس — برق عادی، سبز و آزاد | داتیس آوان نیرو</title>
+  <meta name="description" content="تأمین برق عادی، برق سبز و برق آزاد از بورس انرژی برای مشترکین با دیماند بالای ۱۵۰ کیلووات؛ با ربات تلگرام عرضه و تقاضای برق آزاد.">
   <meta name="theme-color" content="#242058">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/img/logo/icon-64.png">
   <link rel="apple-touch-icon" href="assets/img/logo/icon-180.png">
@@ -23,38 +23,51 @@
         <nav class="breadcrumb" aria-label="مسیر صفحه">
           <a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><span aria-current="page">برق صنایع از بورس</span>
         </nav>
-        <span class="eyebrow">تأمین برق صنایع از بورس انرژی</span>
         <h1>برق صنایع، <b>مستقیم از بورس</b>.</h1>
-        <p>مشترکین با دیماند بالای ۱۵۰ کیلووات می‌توانند برق عادی، برق سبز و برق آزاد را از طریق ما از بورس انرژی تأمین کنند؛ از بررسی قبض تا خرید، تحویل و تسویهٔ ماهانه.</p>
         <ul class="facts">
           <li><svg class="icon" aria-hidden="true"><use href="#i-gauge"></use></svg>دیماند <b>۱۵۰ کیلووات</b> به بالا</li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg>برق عادی، <b>سبز</b> و آزاد</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-plug-zap"></use></svg>بدون تغییر کنتور و انشعاب</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-plug-zap"></use></svg>بدون تغییر کنتور</li>
         </ul>
         <div class="hero__actions" style="margin-top: 28px;">
           <a class="cta-pair" href="#check"><span class="btn btn--white">بررسی شرایط اشتراک</span><span class="cta-pair__arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg></span></a>
-          <a class="text-link" href="#quote">مشاورهٔ رایگان</a>
+          <a class="text-link" data-site="telegram" href="#">ربات برق آزاد</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans -->
+    <section class="section" id="plans">
+      <div class="container">
+        <div class="sec-head"><div class="sec-head__text"><h2>سه نوع برق</h2></div></div>
+        <div class="plans" id="plans-grid"></div>
+      </div>
+    </section>
+
+    <!-- Telegram bot -->
+    <section class="section section--tight" style="padding-top: 0;">
+      <div class="container">
+        <div class="tg-card">
+          <span class="tg-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg></span>
+          <div>
+            <h3>ربات تلگرام عرضه و تقاضای برق آزاد</h3>
+            <p>پیشنهاد خرید یا فروش برق آزاد را ثبت کنید و پیشنهادهای جدید را ببینید.</p>
+          </div>
+          <a class="btn" data-site="telegram" href="#"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg><span class="ltr">@DOT_ON_bot</span></a>
         </div>
       </div>
     </section>
 
     <!-- Eligibility -->
-    <section class="section" id="check">
+    <section class="section section--white" id="check">
       <div class="container">
-        <div class="sec-head">
-          <div class="sec-head__text">
-            <span class="eyebrow">بررسی شرایط</span>
-            <h2>آیا اشتراک شما مشمول خرید از بورس است؟</h2>
-            <p>دیماند قراردادی روی قبض برق شما درج شده است. آن را وارد کنید تا شرایط را ببینید.</p>
-          </div>
-        </div>
         <div class="elig">
           <div class="elig__fig">
             <span class="big ltr">۱۵۰<small>kW+</small></span>
-            <p>حداقل دیماند قراردادی برای خرید برق عادی، سبز و آزاد از بورس انرژی.</p>
+            <p>حداقل دیماند قراردادی برای خرید از بورس.</p>
           </div>
           <form class="elig__form" onsubmit="return false" aria-label="بررسی شرایط خرید برق از بورس">
-            <h3>اطلاعات قبض برق</h3>
+            <h3>آیا اشتراک شما مشمول است؟</h3>
             <div class="elig__row">
               <div class="field">
                 <label for="el-demand">دیماند قراردادی (کیلووات)</label>
@@ -72,94 +85,34 @@
       </div>
     </section>
 
-    <!-- Plans -->
-    <section class="section section--white" id="plans">
-      <div class="container">
-        <div class="sec-head">
-          <div class="sec-head__text">
-            <span class="eyebrow">انواع برق</span>
-            <h2>سه نوع برق، متناسب با صنعت شما</h2>
-            <p>می‌توانید یک نوع یا ترکیبی از آن‌ها را بخرید. کارشناس ما بر اساس الگوی مصرف، ترکیب مناسب را پیشنهاد می‌دهد.</p>
-          </div>
-        </div>
-        <div class="plans" id="plans-grid"></div>
-        <div class="compare-wrap"><table class="compare" id="compare"><caption class="sr-only">مقایسهٔ برق عادی، برق سبز و برق آزاد</caption></table></div>
-      </div>
-    </section>
-
-    <!-- Process + flow diagram -->
+    <!-- How it works -->
     <section class="flow frame blueprint on-dark" aria-labelledby="steps-title">
       <div class="container">
         <div>
-          <span class="eyebrow">مراحل همکاری</span>
           <h2 id="steps-title">از قبض برق تا تحویل از بورس</h2>
-          <p class="lead">برق همچنان از همان شبکه و کنتور به شما می‌رسد؛ ما خرید، قرارداد و تسویه را انجام می‌دهیم.</p>
           <ol class="timeline" id="energy-steps"></ol>
         </div>
         <figure class="diagram" style="margin:0;">
-          <svg viewBox="0 0 320 540" role="img" aria-labelledby="eg-t" style="max-width: 360px; margin-inline: auto;">
+          <svg viewBox="0 0 320 540" role="img" aria-labelledby="eg-t" style="max-width: 340px; margin-inline: auto;">
             <title id="eg-t">مسیر تأمین برق: نیروگاه‌ها، بورس انرژی، داتیس آوان نیرو، شبکهٔ سراسری و کارخانهٔ شما.</title>
             <path class="d-wire d-wire--live" d="M160 82 V112"/>
             <path class="d-wire d-wire--live" d="M160 186 V216"/>
             <path class="d-wire d-wire--live" d="M160 290 V320"/>
             <path class="d-wire d-wire--live" d="M160 394 V424"/>
-            <g class="d-node" transform="translate(40 10)">
-              <rect width="240" height="72" rx="16"/>
-              <use href="#i-factory" x="200" y="24" width="24" height="24" class="d-ic"/>
-              <text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">نیروگاه‌ها</text>
-              <text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">THERMAL · SOLAR · WIND</text>
-            </g>
-            <g class="d-node" transform="translate(40 114)">
-              <rect width="240" height="72" rx="16"/>
-              <use href="#i-landmark" x="200" y="24" width="24" height="24" class="d-ic"/>
-              <text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">بورس انرژی</text>
-              <text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">PRICE DISCOVERY</text>
-            </g>
-            <g class="d-node d-node--gen" transform="translate(40 218)">
-              <rect width="240" height="72" rx="16"/>
-              <use href="#i-handshake" x="200" y="24" width="24" height="24" class="d-ic"/>
-              <text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">داتیس آوان نیرو</text>
-              <text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">PURCHASE · CONTRACT</text>
-            </g>
-            <g class="d-node" transform="translate(40 322)">
-              <rect width="240" height="72" rx="16"/>
-              <use href="#i-radio-tower" x="200" y="24" width="24" height="24" class="d-ic"/>
-              <text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">شبکهٔ سراسری</text>
-              <text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">NATIONAL GRID</text>
-            </g>
-            <g class="d-node" transform="translate(40 426)">
-              <rect width="240" height="72" rx="16"/>
-              <use href="#i-building-2" x="200" y="24" width="24" height="24" class="d-ic"/>
-              <text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">کارخانهٔ شما</text>
-              <text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">SAME METER</text>
-            </g>
+            <g class="d-node" transform="translate(40 10)"><rect width="240" height="72" rx="16"/><use href="#i-factory" x="200" y="24" width="24" height="24" class="d-ic"/><text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">نیروگاه‌ها</text><text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">THERMAL · SOLAR · WIND</text></g>
+            <g class="d-node" transform="translate(40 114)"><rect width="240" height="72" rx="16"/><use href="#i-landmark" x="200" y="24" width="24" height="24" class="d-ic"/><text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">بورس انرژی</text><text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">PRICE DISCOVERY</text></g>
+            <g class="d-node d-node--gen" transform="translate(40 218)"><rect width="240" height="72" rx="16"/><use href="#i-handshake" x="200" y="24" width="24" height="24" class="d-ic"/><text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">داتیس آوان نیرو</text><text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">PURCHASE · CONTRACT</text></g>
+            <g class="d-node" transform="translate(40 322)"><rect width="240" height="72" rx="16"/><use href="#i-radio-tower" x="200" y="24" width="24" height="24" class="d-ic"/><text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">شبکهٔ سراسری</text><text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">NATIONAL GRID</text></g>
+            <g class="d-node" transform="translate(40 426)"><rect width="240" height="72" rx="16"/><use href="#i-building-2" x="200" y="24" width="24" height="24" class="d-ic"/><text class="d-title" x="188" y="38" direction="rtl" text-anchor="start">کارخانهٔ شما</text><text class="d-sub" x="188" y="56" text-anchor="end" direction="ltr">SAME METER</text></g>
           </svg>
-          <figcaption class="diagram__readout"><span>کنتور و انشعاب: <b>بدون تغییر</b></span><span>گزارش: <b>ماهانه</b></span></figcaption>
         </figure>
-        <ul class="industry-chips" style="grid-column: 1 / -1;" aria-label="صنایع">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-factory"></use></svg>صنایع تولیدی</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-warehouse"></use></svg>سردخانه و انبار</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-hospital"></use></svg>بیمارستان</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>دیتاسنتر</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-building-2"></use></svg>مجتمع تجاری و هتل</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-tractor"></use></svg>کشاورزی صنعتی</li>
-        </ul>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section section--white">
+    <section class="section">
       <div class="container faq-grid">
-        <div>
-          <span class="eyebrow">سؤالات متداول</span>
-          <h2>دربارهٔ خرید برق از بورس</h2>
-          <p class="text-muted">اگر پاسخ سؤالتان را پیدا نکردید، تصویر قبض را بفرستید تا بررسی کنیم.</p>
-          <div class="help-card">
-            <b>کارشناس بازار برق</b>
-            <p>برای بررسی قبض و برآورد هزینه تماس بگیرید.</p>
-            <a class="phone ltr" data-site="phone" href="#"></a>
-          </div>
-        </div>
+        <div><h2>سؤالات متداول</h2></div>
         <div class="faq" id="faq"></div>
       </div>
     </section>
@@ -169,12 +122,10 @@
       <div class="cta__bg"><img src="assets/img/plant.jpg" alt="" loading="lazy" width="1200" height="868"></div>
       <div class="container">
         <div>
-          <span class="eyebrow">درخواست تأمین برق</span>
           <h2>برآورد هزینه را <b>رایگان</b> بگیرید.</h2>
-          <p class="lead">اطلاعات اشتراک را بفرستید؛ مقایسهٔ هزینهٔ فعلی با خرید از بورس و ترکیب پیشنهادی برق عادی، سبز و آزاد را برایتان آماده می‌کنیم.</p>
           <div class="contacts">
-            <a href="tel:" data-tel="phone"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span><span><small>تلفن دفتر</small><b class="ltr" data-site="phone"></b></span></a>
-            <div><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-receipt"></use></svg></span><span><small>مدارک لازم</small><b style="font-size:1rem;">تصویر قبض برق اخیر</b></span></div>
+            <a href="tel:+989156202183"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span><span><small>تلفن</small><b data-site="phone"></b></span></a>
+            <a data-site="telegram" href="#"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg></span><span><small>ربات برق آزاد</small><b class="ltr">@DOT_ON_bot</b></span></a>
           </div>
         </div>
         <div class="form-card">
@@ -183,12 +134,12 @@
             <div class="form-grid">
               <div class="field"><label for="e-name">نام و نام خانوادگی<span class="req" aria-hidden="true">*</span></label><input id="e-name" name="name" autocomplete="name" required aria-describedby="e-name-err"><span class="error" id="e-name-err" role="alert"></span></div>
               <div class="field"><label for="e-phone">شمارهٔ تماس<span class="req" aria-hidden="true">*</span></label><input id="e-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="e-phone-err"><span class="error" id="e-phone-err" role="alert"></span></div>
-              <div class="field"><label for="e-company">نام شرکت / واحد صنعتی</label><input id="e-company" name="company" autocomplete="organization"></div>
+              <div class="field"><label for="e-company">نام شرکت</label><input id="e-company" name="company" autocomplete="organization"></div>
               <div class="field"><label for="e-bill">شناسهٔ قبض برق</label><input id="e-bill" name="bill" inputmode="numeric" dir="ltr"></div>
               <div class="field"><label for="e-demand">دیماند قراردادی (کیلووات)</label><input id="e-demand" name="demand" inputmode="numeric" dir="ltr"></div>
               <div class="field"><label for="e-kwh">مصرف ماهانه (کیلووات‌ساعت)</label><input id="e-kwh" name="kwh" inputmode="numeric" dir="ltr"></div>
               <div class="field full">
-                <label for="e-type">نوع برق مورد نیاز</label>
+                <label for="e-type">نوع برق</label>
                 <select id="e-type" name="type">
                   <option value="">مشاوره می‌خواهم</option>
                   <option value="normal">برق عادی</option>
@@ -197,10 +148,9 @@
                   <option value="mix">ترکیبی</option>
                 </select>
               </div>
-              <div class="field full"><label for="e-msg">توضیحات</label><textarea id="e-msg" name="message" placeholder="نوع صنعت، ساعات کار، محدودیت‌های تابستانی و…"></textarea></div>
             </div>
             <div class="form-foot">
-              <small>اطلاعات شما فقط برای بررسی همین درخواست استفاده می‌شود.</small>
+              <small>اطلاعات شما فقط برای همین درخواست استفاده می‌شود.</small>
               <button class="btn btn--primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg>ارسال درخواست</button>
             </div>
             <div class="form-status" role="status" aria-live="polite"></div>

@@ -22,16 +22,16 @@
         <nav class="breadcrumb" aria-label="مسیر صفحه">
           <a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><span aria-current="page">تماس با ما</span>
         </nav>
-        <h1>تماس با ما و استعلام قیمت</h1>
-        <p>فرم زیر را پر کنید یا مستقیم تماس بگیرید. مشاورهٔ انتخاب توان رایگان است.</p>
+        <h1>تماس با ما</h1>
+        <p>مشاوره رایگان است.</p>
       </div>
     </section>
 
     <section class="section" style="padding-top: 40px;">
       <div class="container contact-grid">
         <div class="info-cards">
-          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span><div><h3>تلفن دفتر</h3><a class="ltr num" data-site="phone" href="#"></a></div></div>
-          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"></use></svg></span><div><h3>همراه و واتس‌اپ</h3><a class="ltr num" data-site="mobile" href="#"></a><br><a data-site="whatsapp" href="#" style="color: var(--orange-text); font-weight: 700;">گفتگو در واتس‌اپ</a></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span><div><h3>تلفن و واتس‌اپ</h3><a data-site="phone" href="#" style="font-size:1.15rem; font-weight:800;"></a><br><a data-site="whatsapp" href="#" style="color: var(--orange-text); font-weight: 700;">گفتگو در واتس‌اپ</a></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg></span><div><h3>ربات تلگرام برق آزاد</h3><a data-site="telegram" href="#" style="font-weight:700;"></a></div></div>
           <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></span><div><h3>ایمیل</h3><a class="ltr" data-site="email" href="#"></a></div></div>
           <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg></span><div><h3>نشانی</h3><p data-site="address"></p><p data-site="workshop" class="text-muted" style="font-size:.9375rem;"></p></div></div>
           <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg></span><div><h3>ساعات کاری</h3><p data-site="hours"></p></div></div>
@@ -40,8 +40,7 @@
         </div>
 
         <div class="form-card" id="quote" style="box-shadow: var(--shadow);">
-          <h2 style="font-size: 1.4rem;">فرم استعلام قیمت و مشاوره</h2>
-          <p class="text-muted">هرچه اطلاعات دقیق‌تری بدهید، پیشنهاد دقیق‌تری دریافت می‌کنید.</p>
+          <h2 style="font-size: 1.4rem;">فرم استعلام قیمت</h2>
           <form data-quote novalidate>
             <div class="form-grid">
               <div class="field"><label for="c-name">نام و نام خانوادگی<span class="req" aria-hidden="true">*</span></label><input id="c-name" name="name" autocomplete="name" required aria-describedby="c-name-err"><span class="error" id="c-name-err" role="alert"></span></div>
@@ -49,12 +48,12 @@
               <div class="field"><label for="c-phone">شمارهٔ تماس<span class="req" aria-hidden="true">*</span></label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="c-phone-err"><span class="error" id="c-phone-err" role="alert"></span></div>
               <div class="field"><label for="c-email">ایمیل</label><input id="c-email" name="email" type="email" autocomplete="email" dir="ltr" aria-describedby="c-email-err"><span class="error" id="c-email-err" role="alert"></span></div>
               <div class="field"><label for="c-model">مدل مورد نظر</label><select id="c-model" name="model"><option value="">هنوز انتخاب نکرده‌ام</option></select></div>
-              <div class="field"><label for="c-power">توان مورد نیاز (kVA)</label><input id="c-power" name="power" inputmode="numeric" placeholder="مثلاً ۲۲۰"><span class="hint">اگر نمی‌دانید خالی بگذارید.</span></div>
+              <div class="field"><label for="c-power">توان مورد نیاز (کیلووات)</label><input id="c-power" name="power" inputmode="numeric" placeholder="مثلاً ۳۶۰"></div>
               <div class="field"><label for="c-city">شهر محل نصب</label><input id="c-city" name="city" autocomplete="address-level2"></div>
               <div class="field">
                 <label for="c-need">نوع درخواست</label>
                 <select id="c-need" name="need">
-                  <option value="genset">خرید دیزل ژنراتور</option>
+                  <option value="genset">خرید ژنراتور دیزلی یا گازی</option>
                   <option value="solar">پنل یا نیروگاه خورشیدی</option>
                   <option value="energy">تأمین برق صنایع از بورس</option>
                   <option value="rent">اجارهٔ ژنراتور</option>
@@ -63,7 +62,7 @@
                   <option value="ats">تابلو ATS / سنکرون</option>
                 </select>
               </div>
-              <div class="field full"><label for="c-msg">توضیحات</label><textarea id="c-msg" name="message" placeholder="کاربری (بیمارستان، کارخانه، ساختمان…)، محل نصب، نیاز به کاور سایلنت و…"></textarea></div>
+              <div class="field full"><label for="c-msg">توضیحات</label><textarea id="c-msg" name="message" placeholder="کاربری و محل نصب"></textarea></div>
             </div>
             <div class="form-foot">
               <small>اطلاعات شما فقط برای پاسخ به همین درخواست استفاده می‌شود.</small>
