@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>تماس با ما و استعلام قیمت | داتیس آوان نیرو</title>
+  <meta name="description" content="برای استعلام قیمت دیزل ژنراتور، مشاورهٔ رایگان، نصب یا سرویس با داتیس آوان نیرو تماس بگیرید.">
+  <meta name="theme-color" content="#242058">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/logo/icon-64.png">
+  <link rel="apple-touch-icon" href="assets/img/logo/icon-180.png">
+  <link rel="preload" href="assets/fonts/Vazirmatn-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+</head>
+<body data-page="contact">
+  <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero frame blueprint on-dark">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="مسیر صفحه">
+          <a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><span aria-current="page">تماس با ما</span>
+        </nav>
+        <h1>تماس با ما و استعلام قیمت</h1>
+        <p>فرم زیر را پر کنید یا مستقیم تماس بگیرید. مشاورهٔ انتخاب توان رایگان است.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 40px;">
+      <div class="container contact-grid">
+        <div class="info-cards">
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span><div><h3>تلفن دفتر</h3><a class="ltr num" data-site="phone" href="#"></a></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"></use></svg></span><div><h3>همراه و واتس‌اپ</h3><a class="ltr num" data-site="mobile" href="#"></a><br><a data-site="whatsapp" href="#" style="color: var(--orange-text); font-weight: 700;">گفتگو در واتس‌اپ</a></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></span><div><h3>ایمیل</h3><a class="ltr" data-site="email" href="#"></a></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg></span><div><h3>نشانی</h3><p data-site="address"></p><p data-site="workshop" class="text-muted" style="font-size:.9375rem;"></p></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg></span><div><h3>ساعات کاری</h3><p data-site="hours"></p></div></div>
+          <!-- TODO: کد جاسازی نقشهٔ نشان یا بلد را جایگزین این کادر کنید -->
+          <div class="map-box"><div><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg><b>نقشهٔ محل دفتر</b><br><span style="font-size:.875rem;">کد نقشهٔ نشان / بلد / گوگل را اینجا قرار دهید.</span></div></div>
+        </div>
+
+        <div class="form-card" id="quote" style="box-shadow: var(--shadow);">
+          <h2 style="font-size: 1.4rem;">فرم استعلام قیمت و مشاوره</h2>
+          <p class="text-muted">هرچه اطلاعات دقیق‌تری بدهید، پیشنهاد دقیق‌تری دریافت می‌کنید.</p>
+          <form data-quote novalidate>
+            <div class="form-grid">
+              <div class="field"><label for="c-name">نام و نام خانوادگی<span class="req" aria-hidden="true">*</span></label><input id="c-name" name="name" autocomplete="name" required aria-describedby="c-name-err"><span class="error" id="c-name-err" role="alert"></span></div>
+              <div class="field"><label for="c-company">شرکت / سازمان</label><input id="c-company" name="company" autocomplete="organization"></div>
+              <div class="field"><label for="c-phone">شمارهٔ تماس<span class="req" aria-hidden="true">*</span></label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="c-phone-err"><span class="error" id="c-phone-err" role="alert"></span></div>
+              <div class="field"><label for="c-email">ایمیل</label><input id="c-email" name="email" type="email" autocomplete="email" dir="ltr" aria-describedby="c-email-err"><span class="error" id="c-email-err" role="alert"></span></div>
+              <div class="field"><label for="c-model">مدل مورد نظر</label><select id="c-model" name="model"><option value="">هنوز انتخاب نکرده‌ام</option></select></div>
+              <div class="field"><label for="c-power">توان مورد نیاز (kVA)</label><input id="c-power" name="power" inputmode="numeric" placeholder="مثلاً ۲۲۰"><span class="hint">اگر نمی‌دانید خالی بگذارید.</span></div>
+              <div class="field"><label for="c-city">شهر محل نصب</label><input id="c-city" name="city" autocomplete="address-level2"></div>
+              <div class="field">
+                <label for="c-need">نوع درخواست</label>
+                <select id="c-need" name="need">
+                  <option value="genset">خرید دیزل ژنراتور</option>
+                  <option value="solar">پنل یا نیروگاه خورشیدی</option>
+                  <option value="energy">تأمین برق صنایع از بورس</option>
+                  <option value="rent">اجارهٔ ژنراتور</option>
+                  <option value="install">نصب و راه‌اندازی</option>
+                  <option value="service">سرویس و تعمیرات</option>
+                  <option value="ats">تابلو ATS / سنکرون</option>
+                </select>
+              </div>
+              <div class="field full"><label for="c-msg">توضیحات</label><textarea id="c-msg" name="message" placeholder="کاربری (بیمارستان، کارخانه، ساختمان…)، محل نصب، نیاز به کاور سایلنت و…"></textarea></div>
+            </div>
+            <div class="form-foot">
+              <small>اطلاعات شما فقط برای پاسخ به همین درخواست استفاده می‌شود.</small>
+              <button class="btn btn--primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg>ارسال درخواست</button>
+            </div>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

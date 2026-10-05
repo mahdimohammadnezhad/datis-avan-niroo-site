@@ -1,0 +1,11 @@
+# Raw photo downloads (the optimized copies live in site/assets/img)
+image-sources/
+
+# Logo mockup previews (large, not used by the site)
+logo/preview-files/
+
+# OS / editor files
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/

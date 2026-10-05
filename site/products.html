@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>محصولات — دیزل ژنراتور روباز، سایلنت، کانتینری و سیار | داتیس آوان نیرو</title>
+  <meta name="description" content="فهرست کامل دیزل ژنراتورهای داتیس آوان نیرو از ۲۰ تا ۲۰۰۰ کیلوولت‌آمپر؛ فیلتر بر اساس توان، نوع اجرا و برند موتور.">
+  <meta name="theme-color" content="#242058">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/logo/icon-64.png">
+  <link rel="apple-touch-icon" href="assets/img/logo/icon-180.png">
+  <link rel="preload" href="assets/fonts/Vazirmatn-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+</head>
+<body data-page="products">
+  <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero frame blueprint on-dark">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="مسیر صفحه">
+          <a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><span aria-current="page">محصولات</span>
+        </nav>
+        <h1>دیزل ژنراتورها</h1>
+        <p>با فیلتر توان، نوع اجرا و برند موتور، مدل مناسب را پیدا کنید و مشخصات فنی کامل هر مدل را ببینید.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 32px;">
+      <div class="container catalog">
+        <form class="filters" id="filters" aria-label="فیلتر محصولات">
+          <div class="filters__head">
+            <h2><svg class="icon" aria-hidden="true"><use href="#i-sliders-horizontal"></use></svg>فیلترها</h2>
+            <button type="button" class="filters__reset" id="reset">پاک کردن همه</button>
+          </div>
+          <div class="fgroup">
+            <div class="field search-box">
+              <label class="sr-only" for="q">جستجو</label>
+              <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+              <input id="q" type="search" placeholder="مدل، توان یا موتور…" autocomplete="off">
+            </div>
+          </div>
+          <fieldset class="fgroup" id="g-range"><legend>توان (Standby)</legend></fieldset>
+          <fieldset class="fgroup" id="g-type"><legend>نوع اجرا</legend></fieldset>
+          <fieldset class="fgroup" id="g-brand"><legend>برند موتور</legend></fieldset>
+        </form>
+
+        <div>
+          <div class="toolbar">
+            <p class="toolbar__count" id="count" aria-live="polite" style="margin:0;"></p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button type="button" class="btn btn--ghost btn--sm filters-toggle" id="filters-toggle" aria-controls="filters" aria-expanded="false">
+                <svg class="icon" aria-hidden="true"><use href="#i-sliders-horizontal"></use></svg>فیلترها
+              </button>
+              <div class="field">
+                <label for="sort">مرتب‌سازی</label>
+                <select id="sort">
+                  <option value="power-asc">توان: کم به زیاد</option>
+                  <option value="power-desc">توان: زیاد به کم</option>
+                  <option value="fuel-asc">کم‌مصرف‌ترین (نسبت به توان)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="chips" id="chips"></div>
+          <div class="grid-products" id="results"></div>
+          <div class="empty" id="empty" hidden>
+            <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+            <h3>مدلی با این فیلترها پیدا نشد</h3>
+            <p>فیلترها را تغییر دهید یا برای سفارش مدل خاص با ما تماس بگیرید.</p>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+              <button type="button" class="btn btn--ghost" id="empty-reset">پاک کردن فیلترها</button>
+              <a class="btn btn--primary" href="contact.html#quote">درخواست مدل سفارشی</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
