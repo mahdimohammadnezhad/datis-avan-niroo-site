@@ -36,11 +36,18 @@
 
   // Page state comes from the query string or from hash tokens like #fuel-gas~range-r2
   // (the hash form also works on hosts that strip the query string).
+  // URLs are attacker-controllable: decode defensively and cap the length so a
+  // malformed link (e.g. "#range-%E0") cannot abort the whole script.
+  const safeDecode = s => { try { return decodeURIComponent(s); } catch (e) { return ""; } };
   const params = (() => {
-    const q = new URLSearchParams(location.search);
-    location.hash.slice(1).split("~").forEach(t => {
+    let q;
+    try { q = new URLSearchParams(location.search); } catch (e) { q = new URLSearchParams(); }
+    location.hash.slice(1, 500).split("~").forEach(t => {
       const i = t.indexOf("-"), k = t.slice(0, i);
-      if (i > 0 && ["id", "fuel", "range", "model", "brand", "need", "type"].includes(k)) q.set(k, decodeURIComponent(t.slice(i + 1)).replace(/\./g, ",").replace(/_/g, " "));
+      if (i > 0 && ["id", "fuel", "range", "model", "brand", "need", "type"].includes(k)) {
+        const v = safeDecode(t.slice(i + 1)).replace(/\./g, ",").replace(/_/g, " ");
+        if (v) q.set(k, v.slice(0, 100));
+      }
     });
     return q;
   })();
@@ -80,7 +87,7 @@
           <a class="brand" href="index.html" aria-label="${esc(S.name)} — صفحهٔ اصلی">
             <img src="assets/img/logo/h1.png" alt="${esc(S.name)}" width="720" height="193">
           </a>
-          <nav class="nav" aria-label="منوی اصلی"><ul>${NAV.map(n => `<li><a href="${n.href}"${cur(n)}>${n.label}</a></li>`).join("")}</ul></nav>
+          <nav class="nav" aria-label="منوی اصلی"><ul>${NAV.map(n => `<li><a href="${n.href}"${cur(n)}>${esc(n.label)}</a></li>`).join("")}</ul></nav>
           <div class="header-actions"><a class="btn btn--primary" href="contact.html#quote">استعلام قیمت</a></div>
           <button class="menu-btn" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="drawer">${icon("menu")}</button>
         </div>
@@ -92,7 +99,7 @@
             <img src="assets/img/logo/h1.png" alt="${esc(S.name)}" width="720" height="193">
             <button class="menu-btn" type="button" data-close aria-label="بستن منو">${icon("x")}</button>
           </div>
-          <nav aria-label="منوی موبایل">${NAV.map(n => `<a href="${n.href}"${cur(n)}>${n.label}${icon("chevron-left")}</a>`).join("")}</nav>
+          <nav aria-label="منوی موبایل">${NAV.map(n => `<a href="${n.href}"${cur(n)}>${esc(n.label)}${icon("chevron-left")}</a>`).join("")}</nav>
           <div class="drawer__contact">
             <a class="btn btn--primary btn--block" href="${TEL}">${icon("phone")}${PHONE}</a>
             <a class="btn btn--ghost btn--block" href="${WA}" ${ext}>${icon("message-circle")}واتس‌اپ</a>
@@ -115,13 +122,13 @@
           <div class="footer-grid">
             <div>
               <h4>دسترسی سریع</h4>
-              <ul>${NAV.map(n => `<li><a href="${n.href}">${n.label}</a></li>`).join("")}</ul>
+              <ul>${NAV.map(n => `<li><a href="${n.href}">${esc(n.label)}</a></li>`).join("")}</ul>
             </div>
             <div>
               <h4>ژنراتور</h4>
               <ul>
-                ${Object.entries(F).map(([k, f]) => `<li><a href="products.html#fuel-${k}">${f.label}</a></li>`).join("")}
-                ${R.map(r => `<li><a href="products.html#range-${r.id}">${r.label}</a></li>`).join("")}
+                ${Object.entries(F).map(([k, f]) => `<li><a href="products.html#fuel-${esc(k)}">${esc(f.label)}</a></li>`).join("")}
+                ${R.map(r => `<li><a href="products.html#range-${esc(r.id)}">${esc(r.label)}</a></li>`).join("")}
               </ul>
             </div>
             <div>
@@ -139,7 +146,7 @@
                 <li><a href="${TEL}">${icon("phone")}${PHONE}</a></li>
                 <li><a href="${WA}" ${ext}>${icon("message-circle")}واتس‌اپ</a></li>
                 <li><a href="${TG}" ${ext}>${icon("send")}<span class="ltr">@${esc(S.telegramBot)}</span></a></li>
-                <li><a href="mailto:${esc(S.email)}">${icon("mail")}<span class="ltr">${esc(S.email)}</span></a></li>
+                ${S.email ? `<li><a href="mailto:${esc(S.email)}">${icon("mail")}<span class="ltr">${esc(S.email)}</span></a></li>` : ""}
                 <li><span>${icon("clock")}${esc(S.hours)}</span></li>
               </ul>
             </div>
@@ -207,7 +214,7 @@
       <article class="pcard">
         <div class="pcard__media">
           <img src="${img(p.images[0])}" alt="${esc(productTitle(p))}" loading="lazy" width="1200" height="900">
-          <span class="pcard__type">${icon(F[p.fuel].icon)}${F[p.fuel].short}</span>
+          <span class="pcard__type">${icon(F[p.fuel].icon)}${esc(F[p.fuel].short)}</span>
           <span class="bubble" aria-hidden="true">${icon("arrow-left")}</span>
         </div>
         <div class="pcard__body">
@@ -318,7 +325,10 @@
       if (key === "phone") { el.innerHTML = PHONE; if (el.tagName === "A") el.href = TEL; }
       else if (key === "whatsapp") { if (el.tagName === "A") { el.href = WA; el.target = "_blank"; el.rel = "noopener"; } }
       else if (key === "telegram") { if (el.tagName === "A") { el.href = TG; el.target = "_blank"; el.rel = "noopener"; } if (!el.children.length && !el.textContent.trim()) el.innerHTML = `<span class="ltr">@${esc(S.telegramBot)}</span>`; }
-      else if (key === "email") { el.textContent = S.email; if (el.tagName === "A") el.href = "mailto:" + S.email; }
+      else if (key === "email") {
+        if (!S.email) { const card = el.closest(".info-card"); (card || el).hidden = true; return; }
+        el.textContent = S.email; if (el.tagName === "A") el.href = "mailto:" + S.email;
+      }
       else if (S[key] != null) el.textContent = S[key];
     });
   }
@@ -331,7 +341,7 @@
       if (modelSel) {
         const opt = p => `<option value="${esc(p.model)}">${esc(p.model)} — ${fa(p.kw)} kW ${esc(p.brand)}</option>`;
         modelSel.insertAdjacentHTML("beforeend",
-          Object.entries(F).map(([k, f]) => `<optgroup label="${f.label}">${P.filter(p => p.fuel === k).map(opt).join("")}</optgroup>`).join("") +
+          Object.entries(F).map(([k, f]) => `<optgroup label="${esc(f.label)}">${P.filter(p => p.fuel === k).map(opt).join("")}</optgroup>`).join("") +
           (SP.length ? `<optgroup label="پنل خورشیدی">${SP.map(p => `<option value="${esc(p.model)}">${esc(p.model)} — ${fa(p.watt)} وات</option>`).join("")}</optgroup>` : ""));
         const qm = params.get("model") || form.dataset.model;
         if (qm) modelSel.value = qm;
@@ -354,6 +364,9 @@
         field.classList.add("has-error"); input.setAttribute("aria-invalid", "true"); if (err) err.textContent = res; return false;
       };
       $$("input", form).forEach(inp => inp.addEventListener("blur", () => { if (inp.value) check(inp); }));
+      // bound field sizes so a submission stays a small, well-formed message
+      const limits = { name: 80, phone: 20, email: 120, message: 1000 };
+      $$("input[name], textarea[name]", form).forEach(el => { if (!el.maxLength || el.maxLength < 0) el.maxLength = limits[el.name] || 100; });
 
       form.addEventListener("submit", async e => {
         e.preventDefault();
@@ -381,8 +394,18 @@
             });
             if (data.message) lines.push("", data.message);
             const subject = (form.dataset.subject || "استعلام قیمت") + (data.model ? " — " + data.model : "");
-            location.href = `mailto:${S.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-            show(true, `برای ارسال، برنامهٔ ایمیل شما باز می‌شود. سریع‌تر: <a href="${WA}" ${ext}>پیام در واتس‌اپ</a> یا تماس با <a href="${TEL}">${PHONE}</a>.`);
+            if (S.email) {
+              location.href = `mailto:${S.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+              show(true, `برای ارسال، برنامهٔ ایمیل شما باز می‌شود. سریع‌تر: <a href="${WA}" ${ext}>پیام در واتس‌اپ</a> یا تماس با <a href="${TEL}">${PHONE}</a>.`);
+            } else {
+              // No mailbox configured: hand the request to the company's own WhatsApp
+              // number instead of an address nobody reads.
+              const a = document.createElement("a");
+              a.href = `${WA}?text=${encodeURIComponent([subject, "", ...lines].join("\n"))}`;
+              a.target = "_blank"; a.rel = "noopener noreferrer";
+              document.body.appendChild(a); a.click(); a.remove();
+              show(true, `پیام شما در واتس‌اپ آماده شد؛ برای ثبت درخواست، آن را در واتس‌اپ ارسال کنید. اگر باز نشد با <a href="${TEL}">${PHONE}</a> تماس بگیرید.`);
+            }
           }
         } catch (err) {
           show(false, `ارسال انجام نشد. لطفاً دوباره تلاش کنید یا با <a href="${TEL}">${PHONE}</a> تماس بگیرید.`);
@@ -413,7 +436,7 @@
     // featured products with fuel pills
     const tabs = $("#featured-tabs"), grid = $("#featured");
     const defs = [["all", "منتخب"]].concat(Object.entries(F).map(([k, f]) => [k, f.label]));
-    tabs.innerHTML = defs.map(([k, label], i) => `<button type="button" class="pill" data-k="${k}" aria-pressed="${i === 0}">${label}</button>`).join("");
+    tabs.innerHTML = defs.map(([k, label], i) => `<button type="button" class="pill" data-k="${esc(k)}" aria-pressed="${i === 0}">${esc(label)}</button>`).join("");
     const show = k => {
       const list = k === "all" ? P.filter(p => p.featured) : P.filter(p => p.fuel === k);
       grid.innerHTML = list.slice(0, 4).map(productCard).join("");
@@ -542,7 +565,8 @@
     // in-page links (tabs, "#quote") scroll without replacing the #id-… token
     document.addEventListener("click", e => {
       const a = e.target.closest('a[href^="#"]');
-      const target = a && a.getAttribute("href").length > 1 && document.querySelector(a.getAttribute("href"));
+      let target = null;
+      try { target = a && a.getAttribute("href").length > 1 && document.querySelector(a.getAttribute("href")); } catch (err) { target = null; }
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); }
     });
     const solar = SP.find(x => x.id === id);
@@ -662,10 +686,10 @@
     const feats = [
       ["layers", "طراحی نیم‌سلول", "تلفات کمتر و افت کمتر در سایهٔ جزئی."],
       ["thermometer", "ضریب دمایی پایین", `افت ${fa2(Math.abs(p.tempPmax))}٪ به ازای هر درجه.`],
-      ["wind", "تحمل باد و برف", esc(p.load)],
+      ["wind", "تحمل باد و برف", p.load],
       p.bifacial ? ["sun", "تولید از دو طرف", "سطح پشتی، نور بازتابی زمین را هم جذب می‌کند."] : ["sun", "شیشهٔ ضدانعکاس", "جذب بیشتر نور در صبح و عصر."]
     ];
-    $("#features").innerHTML = feats.map(([ic, t, d]) => `<li>${icon(ic)}<div><b>${t}</b><br><span>${d}</span></div></li>`).join("");
+    $("#features").innerHTML = feats.map(([ic, t, d]) => `<li>${icon(ic)}<div><b>${esc(t)}</b><br><span>${esc(d)}</span></div></li>`).join("");
     $("#related").innerHTML = SP.filter(x => x.id !== p.id).sort((a, b) => Math.abs(a.watt - p.watt) - Math.abs(b.watt - p.watt)).slice(0, 3).map(solarCard).join("");
     const relLink = $("#related-link"); if (relLink) { relLink.href = "solar.html#panels"; relLink.firstChild.textContent = "همهٔ پنل‌ها"; }
     const qf = $("form[data-quote]");
@@ -812,6 +836,8 @@
   };
 
   /* ---------- boot ---------- */
+  // calculator / eligibility forms are local only; never submit them anywhere
+  $$("form:not([data-quote])").forEach(f => f.addEventListener("submit", e => e.preventDefault()));
   renderLayout();
   fillContactBits();
   if (pages[page]) pages[page]();
