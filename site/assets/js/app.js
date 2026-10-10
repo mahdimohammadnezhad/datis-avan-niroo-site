@@ -72,24 +72,17 @@
 
     const header = $("#site-header");
     if (header) header.outerHTML = `
-      <div class="topbar">
-        <div class="topbar__in">
-          <div class="topbar__group">
-            <a href="${TEL}">${icon("phone")}<span class="hide-sm">مشاوره و فروش:</span>${PHONE}</a>
-            <a href="${WA}" ${ext}>${icon("message-circle")}<span>واتس‌اپ</span></a>
-            <a href="${TG}" ${ext}>${icon("send")}<span>ربات برق آزاد</span></a>
-          </div>
-          <span class="topbar__hours">${icon("clock")}${esc(S.hours)}</span>
-        </div>
-      </div>
-      <header class="site-header" id="top">
-        <div class="header-bar">
+      <header class="nav" id="top">
+        <div class="nav__in">
           <a class="brand" href="index.html" aria-label="${esc(S.name)} — صفحهٔ اصلی">
             <img src="assets/img/logo/h1.png" alt="${esc(S.name)}" width="720" height="193">
           </a>
-          <nav class="nav" aria-label="منوی اصلی"><ul>${NAV.map(n => `<li><a href="${n.href}"${cur(n)}>${esc(n.label)}</a></li>`).join("")}</ul></nav>
-          <div class="header-actions"><a class="btn btn--primary" href="contact.html#quote">استعلام قیمت</a></div>
-          <button class="menu-btn" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="drawer">${icon("menu")}</button>
+          <nav class="nav__links" aria-label="منوی اصلی"><ul>${NAV.map(n => `<li><a href="${n.href}"${cur(n)}>${esc(n.label)}</a></li>`).join("")}</ul></nav>
+          <div class="nav__end">
+            <a class="nav__phone" href="${TEL}" aria-label="تماس ${esc(S.phoneDisplay)}">${icon("phone")}${PHONE}</a>
+            <a class="btn btn--sm nav__cta" href="contact.html#quote">استعلام قیمت</a>
+            <button class="menu-btn" type="button" aria-label="منو" aria-expanded="false" aria-controls="drawer">${icon("menu")}</button>
+          </div>
         </div>
       </header>
       <div class="drawer" id="drawer" aria-hidden="true">
@@ -99,31 +92,24 @@
             <img src="assets/img/logo/h1.png" alt="${esc(S.name)}" width="720" height="193">
             <button class="menu-btn" type="button" data-close aria-label="بستن منو">${icon("x")}</button>
           </div>
-          <nav aria-label="منوی موبایل">${NAV.map(n => `<a href="${n.href}"${cur(n)}>${esc(n.label)}${icon("chevron-left")}</a>`).join("")}</nav>
+          <nav aria-label="منوی موبایل">${NAV.map(n => `<a href="${n.href}"${cur(n)}>${esc(n.label)}</a>`).join("")}</nav>
           <div class="drawer__contact">
-            <a class="btn btn--primary btn--block" href="${TEL}">${icon("phone")}${PHONE}</a>
-            <a class="btn btn--ghost btn--block" href="${WA}" ${ext}>${icon("message-circle")}واتس‌اپ</a>
-            <a class="btn btn--ghost btn--block" href="${TG}" ${ext}>${icon("send")}ربات برق آزاد</a>
+            <a class="btn btn--block" href="${TEL}">${icon("phone")}${PHONE}</a>
+            <a class="btn btn--secondary btn--block" href="${WA}" ${ext}>واتس‌اپ</a>
+            <a class="btn btn--secondary btn--block" href="${TG}" ${ext}>ربات تلگرام برق آزاد</a>
           </div>
         </div>
       </div>`;
 
     const footer = $("#site-footer");
     if (footer) footer.outerHTML = `
-      <footer class="site-footer">
-        <div class="container">
-          <div class="footer-top">
-            <div>
-              <img src="assets/img/logo/h2.png" alt="${esc(S.name)}" width="720" height="193" loading="lazy">
-              <p>${esc(S.tagline)}</p>
-            </div>
-            <a class="cta-pair" href="${WA}" ${ext}><span class="btn btn--white">مشاوره در واتس‌اپ</span><span class="cta-pair__arrow">${icon("arrow-left")}</span></a>
+      <footer class="footer">
+        <div class="wrap">
+          <div class="footer__top">
+            <img src="assets/img/logo/h1.png" alt="${esc(S.name)}" width="720" height="193" loading="lazy">
+            <p>${esc(S.tagline)}</p>
           </div>
           <div class="footer-grid">
-            <div>
-              <h4>دسترسی سریع</h4>
-              <ul>${NAV.map(n => `<li><a href="${n.href}">${esc(n.label)}</a></li>`).join("")}</ul>
-            </div>
             <div>
               <h4>ژنراتور</h4>
               <ul>
@@ -135,31 +121,34 @@
               <h4>انرژی</h4>
               <ul>
                 <li><a href="solar.html">نیروگاه و پنل خورشیدی</a></li>
-                <li><a href="solar.html#calc">برآورد تولید برق خورشیدی</a></li>
-                <li><a href="energy.html">برق عادی، سبز و آزاد از بورس</a></li>
-                <li><a href="${TG}" ${ext}>ربات تلگرام برق آزاد</a></li>
+                <li><a href="solar.html#calc">برآورد تولید برق</a></li>
+                <li><a href="energy.html">برق عادی، سبز و آزاد</a></li>
+                <li><a href="${TG}" ${ext}>ربات برق آزاد</a></li>
               </ul>
             </div>
             <div>
-              <h4>ارتباط با ما</h4>
+              <h4>شرکت</h4>
+              <ul>${NAV.filter(n => ["services", "about", "contact"].includes(n.page)).map(n => `<li><a href="${n.href}">${esc(n.label)}</a></li>`).join("")}</ul>
+            </div>
+            <div>
+              <h4>تماس</h4>
               <ul>
-                <li><a href="${TEL}">${icon("phone")}${PHONE}</a></li>
-                <li><a href="${WA}" ${ext}>${icon("message-circle")}واتس‌اپ</a></li>
-                <li><a href="${TG}" ${ext}>${icon("send")}<span class="ltr">@${esc(S.telegramBot)}</span></a></li>
-                ${S.email ? `<li><a href="mailto:${esc(S.email)}">${icon("mail")}<span class="ltr">${esc(S.email)}</span></a></li>` : ""}
-                <li><span>${icon("clock")}${esc(S.hours)}</span></li>
+                <li><a href="${TEL}">${PHONE}</a></li>
+                <li><a href="${WA}" ${ext}>واتس‌اپ</a></li>
+                ${S.email ? `<li><a href="mailto:${esc(S.email)}"><span class="ltr">${esc(S.email)}</span></a></li>` : ""}
+                <li><span>${esc(S.hours)}</span></li>
               </ul>
             </div>
           </div>
-          <div class="footer-bottom">
+          <div class="footer__bottom">
             <span>© ${fa(new Date().getFullYear())} ${esc(S.name)}</span>
             <a href="credits.html">منابع تصاویر</a>
           </div>
         </div>
       </footer>
       <div class="fab-bar">
-        <a class="btn btn--light" href="${TEL}">${icon("phone")}تماس</a>
-        <a class="btn btn--primary" href="${WA}" ${ext}>${icon("message-circle")}واتس‌اپ</a>
+        <a class="btn btn--secondary" href="${TEL}">${icon("phone")}تماس</a>
+        <a class="btn" href="${WA}" ${ext}>واتس‌اپ</a>
       </div>
       <button class="to-top" type="button" aria-label="بازگشت به بالای صفحه">${icon("arrow-up")}</button>`;
 
@@ -167,10 +156,10 @@
   }
 
   function initHeader() {
-    const header = $(".site-header"), toTop = $(".to-top");
+    const nav = $(".nav"), toTop = $(".to-top");
     const onScroll = () => {
       const y = window.scrollY;
-      if (header) header.classList.toggle("is-scrolled", y > 8);
+      if (nav) nav.classList.toggle("scrolled", y > 8);
       if (toTop) toTop.classList.toggle("is-visible", y > 600);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -181,7 +170,7 @@
     });
 
     const drawer = $("#drawer");
-    const openBtn = $(".site-header .menu-btn");
+    const openBtn = $(".nav .menu-btn");
     if (!drawer || !openBtn) return;
     const focusables = () => $$("a, button", drawer);
     const open = () => {
@@ -206,114 +195,63 @@
   }
 
   /* ---------- shared components ---------- */
+  const more = (label = "مشخصات") => `<span class="link">${label}${icon("chevron-left")}</span>`;
+
   function productCard(p) {
-    const usage = p.fuel === "gas"
-      ? `<li>${icon("gauge")}<span>راندمان ${fa1(p.effEl)}٪</span></li>`
-      : `<li>${icon("fuel")}<span>${fa1(p.fuel75)} لیتر/ساعت</span></li>`;
+    const usage = p.fuel === "gas" ? `راندمان ${fa1(p.effEl)}٪` : `${fa1(p.fuel75)} لیتر در ساعت`;
     return `
-      <article class="pcard">
-        <div class="pcard__media">
-          <img src="${img(p.images[0])}" alt="${esc(productTitle(p))}" loading="lazy" width="1200" height="900">
-          <span class="pcard__type">${icon(F[p.fuel].icon)}${esc(F[p.fuel].short)}</span>
-          <span class="bubble" aria-hidden="true">${icon("arrow-left")}</span>
-        </div>
-        <div class="pcard__body">
-          <div class="pcard__head">
-            <div>
-              <span class="pcard__model">${esc(p.model)}</span>
-              <h3><a href="${productUrl(p)}">${esc(productTitle(p))}</a></h3>
-            </div>
-            <div class="pcard__kva"><b>${fa(p.kw)}</b><small>kW</small></div>
+      <article class="card">
+        <div class="card__media"><img src="${img(p.images[0])}" alt="${esc(productTitle(p))}" loading="lazy" width="1200" height="900"></div>
+        <div class="card__body">
+          <span class="card__kicker">${esc(F[p.fuel].label)} · <span class="ltr">${esc(p.model)}</span></span>
+          <div class="card__row">
+            <h3 class="card__title"><a href="${productUrl(p)}"><span class="ltr">${esc(p.brand)}</span></a></h3>
+            <span class="card__power">${fa(p.kw)}<small>کیلووات</small></span>
           </div>
-          <ul class="pchips" aria-label="مشخصات کلیدی">
-            <li>${icon("settings")}<span class="ltr">${esc(p.brand)}</span></li>
-            <li>${icon("zap")}<span class="ltr">${fa(p.kva)} kVA</span></li>
-            ${usage}
-          </ul>
-          <div class="pcard__foot">
-            <span class="link-arrow">مشخصات${icon("arrow-left")}</span>
-            <a class="btn btn--ghost btn--sm" href="contact.html#model-${p.model}" aria-label="استعلام قیمت ${esc(p.model)}">استعلام قیمت</a>
-          </div>
+          <p class="card__meta"><span class="ltr">${fa(p.kva)} kVA</span> · ${usage}</p>
+          <div class="card__foot">${more()}<a class="btn btn--secondary btn--sm" href="contact.html#model-${esc(p.model)}" aria-label="استعلام قیمت ${esc(p.model)}">استعلام</a></div>
         </div>
       </article>`;
   }
 
   function solarCard(p) {
     return `
-      <article class="pcard">
-        <div class="pcard__media">
-          <img src="${img(p.images[0])}" alt="${esc(panelTitle(p))}" loading="lazy" width="1200" height="795">
-          <span class="pcard__type">${p.bifacial ? "دوطرفه" : "تک‌رو"}</span>
-          <span class="bubble" aria-hidden="true">${icon("arrow-left")}</span>
-        </div>
-        <div class="pcard__body">
-          <div class="pcard__head">
-            <div>
-              <span class="pcard__model">${esc(p.model)}</span>
-              <h3><a href="${productUrl(p)}">${esc(panelTitle(p))}</a></h3>
-            </div>
-            <div class="pcard__kva"><b>${fa(p.watt)}</b><small>Wp</small></div>
+      <article class="card">
+        <div class="card__media"><img src="${img(p.images[0])}" alt="${esc(panelTitle(p))}" loading="lazy" width="1200" height="795"></div>
+        <div class="card__body">
+          <span class="card__kicker">پنل خورشیدی · <span class="ltr">${esc(p.model)}</span></span>
+          <div class="card__row">
+            <h3 class="card__title"><a href="${productUrl(p)}"><span class="ltr">${esc(p.cellEn)}</span></a></h3>
+            <span class="card__power">${fa(p.watt)}<small>وات</small></span>
           </div>
-          <ul class="pchips" aria-label="مشخصات کلیدی">
-            <li>${icon("sun")}<span class="ltr">${esc(p.cellEn)}</span></li>
-            <li>${icon("gauge")}<span>راندمان ${fa1(p.eff)}٪</span></li>
-            <li>${icon("shield-check")}<span>${esc(p.warranty)}</span></li>
-          </ul>
-          <div class="pcard__foot">
-            <span class="link-arrow">مشخصات${icon("arrow-left")}</span>
-            <a class="btn btn--ghost btn--sm" href="contact.html#model-${p.model}~need-solar" aria-label="استعلام قیمت ${esc(p.model)}">استعلام قیمت</a>
-          </div>
+          <p class="card__meta">راندمان ${fa1(p.eff)}٪ · ${esc(p.warranty)}</p>
+          <div class="card__foot">${more()}<a class="btn btn--secondary btn--sm" href="contact.html#model-${esc(p.model)}~need-solar" aria-label="استعلام قیمت ${esc(p.model)}">استعلام</a></div>
         </div>
       </article>`;
   }
 
-  function initReveal() {
-    const els = $$(".reveal");
-    if (reduceMotion || !("IntersectionObserver" in window)) { els.forEach(e => e.classList.add("is-in")); return; }
-    const io = new IntersectionObserver(entries => entries.forEach(en => {
-      if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
-    }), { rootMargin: "0px 0px -8% 0px" });
-    els.forEach(e => io.observe(e));
-  }
-
-  function countUp(el, to, suffix) {
-    const fmt = v => `<span class="ltr">${fa(v)}<small>${esc(faDigits(suffix))}</small></span>`;
-    const done = () => { el.innerHTML = fmt(to); };
-    if (reduceMotion || !("IntersectionObserver" in window)) return done();
-    const io = new IntersectionObserver(([en]) => {
-      if (!en.isIntersecting) return;
-      io.disconnect();
-      const t0 = performance.now(), dur = 1200;
-      const step = t => {
-        const k = Math.min(1, (t - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - k, 3)));
-        el.innerHTML = fmt(v);
-        if (k < 1) requestAnimationFrame(step); else done();
-      };
-      requestAnimationFrame(step);
-    });
-    io.observe(el);
-  }
-
   function renderStats(root) {
     if (!root) return;
-    root.innerHTML = S.stats.map(s => `<li><strong data-to="${s.value}" data-suffix="${esc(s.suffix)}"><span class="ltr">${fa(s.value)}<small>${esc(faDigits(s.suffix))}</small></span></strong><span>${esc(s.label)}</span></li>`).join("");
-    $$("strong", root).forEach(el => countUp(el, +el.dataset.to, el.dataset.suffix));
+    root.innerHTML = S.stats.map(s => `<div class="stat"><b><span class="ltr">${fa(s.value)}<small>${esc(faDigits(s.suffix.trim()))}</small></span></b><span>${esc(s.label)}</span></div>`).join("");
   }
 
   function renderProjects(root) {
     if (!root) return;
     root.innerHTML = window.PROJECTS.map(pr => `
-      <article class="project reveal">
-        <img src="${img(pr.img)}" alt="${esc(pr.title)}" loading="lazy" width="1200" height="900">
-        <div class="project__row"><h3>${esc(pr.title)}</h3><span class="project__power">${esc(pr.power)}</span></div>
-        <div class="project__meta">${icon("map-pin")}${esc(pr.place)}</div>
+      <article class="card">
+        <div class="card__media"><img src="${img(pr.img)}" alt="${esc(pr.title)}" loading="lazy" width="1200" height="900"></div>
+        <div class="card__body">
+          <span class="card__kicker">${esc(pr.place)}</span>
+          <h3 class="card__title">${esc(pr.title)}</h3>
+          <p class="card__meta"><span class="ltr">${esc(pr.power)}</span></p>
+        </div>
       </article>`).join("");
   }
 
   function renderFaq(root, list) {
     if (!root || !list) return;
-    root.innerHTML = list.map((f, i) => `
-      <details${i === 0 ? " open" : ""}>
+    root.innerHTML = list.map(f => `
+      <details>
         <summary>${esc(f.q)}${icon("chevron-down")}</summary>
         <div><p>${esc(f.a)}</p></div>
       </details>`).join("");
@@ -326,7 +264,7 @@
       else if (key === "whatsapp") { if (el.tagName === "A") { el.href = WA; el.target = "_blank"; el.rel = "noopener"; } }
       else if (key === "telegram") { if (el.tagName === "A") { el.href = TG; el.target = "_blank"; el.rel = "noopener"; } if (!el.children.length && !el.textContent.trim()) el.innerHTML = `<span class="ltr">@${esc(S.telegramBot)}</span>`; }
       else if (key === "email") {
-        if (!S.email) { const card = el.closest(".info-card"); (card || el).hidden = true; return; }
+        if (!S.email) { const row = el.closest(".row"); (row || el).hidden = true; return; }
         el.textContent = S.email; if (el.tagName === "A") el.href = "mailto:" + S.email;
       }
       else if (S[key] != null) el.textContent = S[key];
@@ -416,38 +354,26 @@
     });
   }
 
+
   /* ---------- pages ---------- */
   const pages = {};
 
-  pages.home = function () {
-    const sp = P.find(p => p.id === S.spotlight) || P.find(p => p.featured);
-    const spot = $("#spotlight");
-    if (sp && spot) {
-      spot.href = productUrl(sp);
-      spot.innerHTML = `
-        <img src="${img(sp.images[0])}" alt="" width="144" height="112">
-        <span class="spotlight__text">
-          <span class="spotlight__tag">پرفروش این ماه</span>
-          <b>${esc(productTitle(sp))}</b>
-        </span>
-        <span class="bubble" aria-hidden="true">${icon("arrow-left")}</span>`;
-    }
+  function segmented(root, defs, onPick) {
+    root.innerHTML = defs.map(([k, label], i) => `<button type="button" data-k="${esc(k)}" aria-pressed="${i === 0}">${esc(label)}</button>`).join("");
+    root.addEventListener("click", e => {
+      const b = e.target.closest("button"); if (!b) return;
+      $$("button", root).forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      onPick(b.dataset.k);
+    });
+    onPick(defs[0][0]);
+  }
 
-    // featured products with fuel pills
-    const tabs = $("#featured-tabs"), grid = $("#featured");
-    const defs = [["all", "منتخب"]].concat(Object.entries(F).map(([k, f]) => [k, f.label]));
-    tabs.innerHTML = defs.map(([k, label], i) => `<button type="button" class="pill" data-k="${esc(k)}" aria-pressed="${i === 0}">${esc(label)}</button>`).join("");
-    const show = k => {
+  pages.home = function () {
+    const grid = $("#featured");
+    segmented($("#featured-tabs"), [["all", "منتخب"]].concat(Object.entries(F).map(([k, f]) => [k, f.short])), k => {
       const list = k === "all" ? P.filter(p => p.featured) : P.filter(p => p.fuel === k);
       grid.innerHTML = list.slice(0, 4).map(productCard).join("");
-    };
-    tabs.addEventListener("click", e => {
-      const b = e.target.closest(".pill"); if (!b) return;
-      $$(".pill", tabs).forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-      show(b.dataset.k);
     });
-    show("all");
-
     renderStats($("#stats"));
     renderProjects($("#projects"));
   };
@@ -484,14 +410,14 @@
         (!q || [p.model, p.brand, p.engine, String(p.kw), String(p.kva), F[p.fuel].label].join(" ").toLowerCase().includes(q))
       ).sort((a, b) => state.sort === "power-desc" ? b.kw - a.kw : a.kw - b.kw);
 
-      $("#count").innerHTML = `${fa(list.length)} مدل <span>از ${fa(P.length)}</span>`;
+      $("#count").innerHTML = `<b>${fa(list.length)}</b> مدل از ${fa(P.length)}`;
       $("#results").innerHTML = list.map(productCard).join("");
       $("#empty").hidden = !!list.length;
 
       const chips = [];
       ["range", "fuel", "brand"].forEach(k => state[k].forEach(v => chips.push({ k, v, label: labelFor(k, v) })));
       if (state.q) chips.push({ k: "q", v: state.q, label: `«${state.q}»` });
-      $("#chips").innerHTML = chips.map(c => `<button type="button" class="chip" data-k="${c.k}" data-v="${esc(c.v)}" aria-label="حذف فیلتر ${esc(c.label)}">${esc(c.label)}${icon("x")}</button>`).join("");
+      $("#chips").innerHTML = chips.map(c => `<button type="button" class="chip" data-k="${esc(c.k)}" data-v="${esc(c.v)}" aria-label="حذف فیلتر ${esc(c.label)}">${esc(c.label)}${icon("x")}</button>`).join("");
 
       const tokens = ["range", "fuel"].filter(k => state[k].length).map(k => `${k}-${state[k].join(".")}`);
       try { history.replaceState(null, "", location.pathname + location.search + (tokens.length ? "#" + tokens.join("~") : "")); } catch (err) { /* sandboxed hosts */ }
@@ -504,7 +430,6 @@
     });
     let timer;
     qInput.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => { state.q = qInput.value; apply(); }, 200); });
-    form.addEventListener("submit", e => e.preventDefault());
     sortSel.addEventListener("change", () => { state.sort = sortSel.value; apply(); });
     $("#chips").addEventListener("click", e => {
       const c = e.target.closest(".chip"); if (!c) return;
@@ -530,11 +455,11 @@
 
   /* product detail (generator or solar panel) */
   const row = (k, v, ltr) => v == null || v === "" ? "" : `<tr><th scope="row">${k}</th><td>${ltr ? `<span class="ltr">${v}</span>` : v}</td></tr>`;
-  const table = (ic, cap, rows) => `<table class="spec-table"><caption>${icon(ic)}${cap}</caption><tbody>${rows}</tbody></table>`;
+  const table = (ic, cap, rows) => `<section class="spec"><h3>${icon(ic)}${cap}</h3><div class="panel"><table><tbody>${rows}</tbody></table></div></section>`;
+  const cell = (label, value, unit, hl) => `<div class="stat${hl ? " hl" : ""}"><b><span class="ltr">${value}<small>${unit}</small></span></b><span>${label}</span></div>`;
 
   function detailShell(title, imgs, tags, intro, plate, actions, assure) {
     return `
-      <div class="print-head"><img src="assets/img/logo/h1.png" alt="${esc(S.name)}"><span class="ltr">${faDigits(S.phoneDisplay)}</span></div>
       <div class="pd">
         <div class="gallery">
           <div class="gallery__main"><img id="g-main" src="${img(imgs[0])}" alt="${esc(title)}" width="1200" height="900"></div>
@@ -545,7 +470,7 @@
         <div class="pd__summary">
           <div class="pd__tags">${tags}</div>
           <p class="pd__intro">${esc(intro)}</p>
-          <div class="nameplate">${plate}</div>
+          <div class="panel"><div class="cells cells--2 plate">${plate}</div></div>
           <div class="pd__actions">${actions}</div>
           <ul class="pd__assure">${assure}</ul>
         </div>
@@ -558,11 +483,10 @@
       $$(".gallery__thumbs button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
     }));
   }
-  const cell = (label, value, unit, hl) => `<div${hl ? ' class="hl"' : ""}><span>${label}</span><b>${value}<small>${unit}</small></b></div>`;
+  const features = list => list.map(([ic, t, d]) => `<div class="row">${icon(ic)}<div class="row__main"><span class="row__title">${esc(t)}</span><span class="row__text">${esc(d)}</span></div></div>`).join("");
 
   pages.product = function () {
     const id = params.get("id");
-    // in-page links (tabs, "#quote") scroll without replacing the #id-… token
     document.addEventListener("click", e => {
       const a = e.target.closest('a[href^="#"]');
       let target = null;
@@ -572,10 +496,9 @@
     const solar = SP.find(x => x.id === id);
     if (solar) return solarProductPage(solar);
     const p = P.find(x => x.id === id);
-    const root = $("#product");
     if (!p) {
       $("#pd-title").textContent = "محصول پیدا نشد";
-      root.innerHTML = `<div class="empty">${icon("search")}<h3>این مدل در فهرست محصولات وجود ندارد</h3><a class="btn" href="products.html">مشاهدهٔ همهٔ ژنراتورها</a></div>`;
+      $("#product").innerHTML = `<div class="panel empty">${icon("search")}<h3>این مدل در فهرست نیست</h3><div class="actions"><a class="btn" href="products.html">همهٔ ژنراتورها</a></div></div>`;
       $$(".pd-only").forEach(el => el.remove());
       return;
     }
@@ -584,24 +507,23 @@
     document.title = `${p.model} — ${title} | ${S.name}`;
     const meta = $('meta[name="description"]');
     if (meta) meta.content = `${title} مدل ${p.model}، موتور ${p.engine}، ${p.kw} کیلووات؛ مشخصات فنی و استعلام قیمت از ${S.name}.`;
-    $("#pd-title").textContent = `${p.model} — ${title}`;
+    $("#pd-kicker").textContent = `${F[p.fuel].label} · ${p.execution}`;
+    $("#pd-title").innerHTML = `<span class="ltr">${esc(p.brand)}</span> ${fa(p.kw)} کیلووات`;
     $("#pd-crumb").textContent = p.model;
-    $("#pd-sub").textContent = `${p.execution} • موتور ${p.engine}`;
+    $("#pd-sub").textContent = `مدل ${p.model} · موتور ${p.engine}`;
 
     $("#product").innerHTML = detailShell(title, p.images,
-      `<span class="tag">${icon(F[p.fuel].icon)}${F[p.fuel].label}</span><span class="tag tag--orange ltr">${esc(p.brand)}</span><span class="tag">روباز</span>`,
+      `<span class="tag">${esc(F[p.fuel].label)}</span><span class="tag">روباز</span><span class="tag">${esc(p.warranty)}</span>`,
       p.intro,
       cell("توان پیوسته (Prime)", fa(p.kw), "kW", true) + cell("توان ظاهری", fa(p.kva), "kVA") +
       (gas ? cell("راندمان الکتریکی", fa1(p.effEl), "%") + cell("مصرف گاز در بار کامل", fa(p.gas100), "m³/h")
-           : cell("توان اضطراری (Standby)", fa(p.standbyKw), "kW") + cell("مصرف سوخت در ۷۵٪ بار", fa1(p.fuel75), "L/h")),
-      `<a class="btn btn--primary" href="#quote">${icon("file-text")}استعلام قیمت</a>
-       <a class="btn btn--ghost" href="${TEL}">${icon("phone")}تماس</a>
-       <a class="btn btn--ghost" href="${WA}" ${ext}>${icon("message-circle")}واتس‌اپ</a>`,
-      `<li>${icon("shield-check")}${esc(p.warranty)}</li><li>${icon("hard-hat")}نصب، راه‌اندازی و تست بار</li>`);
+           : cell("توان اضطراری", fa(p.standbyKw), "kW") + cell("مصرف سوخت در ۷۵٪ بار", fa1(p.fuel75), "L/h")),
+      `<a class="btn" href="#quote">استعلام قیمت</a><a class="btn btn--secondary" href="${WA}" ${ext}>واتس‌اپ</a>`,
+      `<li>${icon("circle-check")}نصب، راه‌اندازی و تست بار</li><li>${icon("circle-check")}سرویس دوره‌ای و قطعات اصلی</li>`);
     initGallery();
 
     $("#specs").innerHTML = `
-      ${table("zap", "مشخصات الکتریکی",
+      ${table("zap", "الکتریکی",
         row("توان پیوسته (Prime)", `${fa(p.kw)} kW / ${fa(p.kva)} kVA`, true) +
         (gas ? "" : row("توان اضطراری (Standby)", `${fa(p.standbyKw)} kW`, true)) +
         row("ولتاژ خروجی", esc(p.voltage), true) + row("فرکانس", esc(p.frequency), true) +
@@ -628,21 +550,19 @@
     const note = $("#spec-note");
     if (note) note.textContent = "مقادیر مصرف سوخت تقریبی و در شرایط استاندارد هستند.";
 
-    const feats = [
+    $("#features").innerHTML = features([
       ["refresh-cw", "روشن‌شدن خودکار", "با تابلو ATS، هنگام قطع شبکه خودکار روشن می‌شود."],
       ["activity", "کنترلر دیجیتال", `نمایش وضعیت و خطاها با ${p.controller}.`],
       ["shield-check", "حفاظت کامل", "توقف خودکار در دمای بالا، فشار روغن پایین و اضافه‌بار."],
       gas ? ["flame", "خط گاز و رگولاتور", "اجرای خط گاز، رگولاتور و شیر قطع اضطراری."]
           : ["calendar-clock", "پایش از راه دور", "ماژول GSM یا اترنت برای گزارش وضعیت."]
-    ];
-    $("#features").innerHTML = feats.map(([ic, t, d]) => `<li>${icon(ic)}<div><b>${t}</b><br><span>${esc(d)}</span></div></li>`).join("");
+    ]);
 
     const related = P.filter(x => x.id !== p.id).sort((a, b) =>
       (a.fuel === p.fuel ? 0 : 1) - (b.fuel === p.fuel ? 0 : 1) || Math.abs(a.kw - p.kw) - Math.abs(b.kw - p.kw)).slice(0, 3);
     $("#related").innerHTML = related.map(productCard).join("");
     const qf = $("form[data-quote]");
     if (qf) qf.dataset.model = p.model;
-    tabSpy();
   };
 
   function solarProductPage(p) {
@@ -650,28 +570,27 @@
     document.title = `${p.model} — ${title} | ${S.name}`;
     const meta = $('meta[name="description"]');
     if (meta) meta.content = `${title} مدل ${p.model}، ${p.cell}، راندمان ${p.eff}٪؛ مشخصات فنی و استعلام قیمت از ${S.name}.`;
-    $("#pd-title").textContent = `${p.model} — ${title}`;
+    $("#pd-kicker").textContent = "پنل خورشیدی";
+    $("#pd-title").innerHTML = `${esc(title)}`;
     $("#pd-crumb").textContent = p.model;
-    $("#pd-sub").textContent = `${p.cell} • ${p.cells}`;
+    $("#pd-sub").textContent = `مدل ${p.model} · ${p.cell}`;
     const cat = $("#pd-cat"); if (cat) { cat.href = "solar.html"; cat.textContent = "انرژی خورشیدی"; }
 
     $("#product").innerHTML = detailShell(title, p.images,
-      `<span class="tag">${icon("sun")}<span class="ltr">${esc(p.cellEn)}</span></span>${p.bifacial ? `<span class="tag tag--orange">دوطرفه</span>` : ""}<span class="tag">نیم‌سلول</span>`,
+      `<span class="tag"><span class="ltr">${esc(p.cellEn)}</span></span>${p.bifacial ? `<span class="tag">دوطرفه</span>` : ""}<span class="tag">${esc(p.warranty)}</span>`,
       p.intro,
-      cell("توان نامی (Pmax)", fa(p.watt), "Wp", true) + cell("راندمان پنل", fa1(p.eff), "%") +
-      cell("ولتاژ مدار باز (Voc)", fa1(p.voc), "V") + cell("جریان اتصال کوتاه (Isc)", fa1(p.isc), "A"),
-      `<a class="btn btn--primary" href="#quote">${icon("file-text")}استعلام قیمت</a>
-       <a class="btn btn--ghost" href="${WA}" ${ext}>${icon("message-circle")}واتس‌اپ</a>
-       <a class="btn btn--ghost" href="solar.html#calc">${icon("calculator")}برآورد تولید برق</a>`,
-      `<li>${icon("shield-check")}${esc(p.warranty)}</li><li>${icon("hard-hat")}طراحی، نصب و راه‌اندازی نیروگاه</li>`);
+      cell("توان نامی", fa(p.watt), "Wp", true) + cell("راندمان", fa1(p.eff), "%") +
+      cell("ولتاژ مدار باز", fa1(p.voc), "V") + cell("جریان اتصال کوتاه", fa1(p.isc), "A"),
+      `<a class="btn" href="#quote">استعلام قیمت</a><a class="btn btn--secondary" href="solar.html#calc">برآورد تولید برق</a>`,
+      `<li>${icon("circle-check")}طراحی، نصب و راه‌اندازی نیروگاه</li><li>${icon("circle-check")}پایش تولید از راه دور</li>`);
     initGallery();
 
     $("#specs").innerHTML = `
-      ${table("zap", "مشخصات الکتریکی (STC)",
+      ${table("zap", "الکتریکی (STC)",
         row("توان نامی (Pmax)", `${fa(p.watt)} W`, true) + row("ولتاژ در توان بیشینه (Vmp)", `${fa1(p.vmp)} V`, true) +
         row("جریان در توان بیشینه (Imp)", `${fa1(p.imp)} A`, true) + row("ولتاژ مدار باز (Voc)", `${fa1(p.voc)} V`, true) +
         row("جریان اتصال کوتاه (Isc)", `${fa1(p.isc)} A`, true) + row("راندمان پنل", `${fa1(p.eff)}٪`) + row("تلورانس توان", esc(p.tol), true))}
-      ${table("layers", "مشخصات مکانیکی",
+      ${table("layers", "مکانیکی",
         row("نوع سلول", esc(p.cell)) + row("تعداد سلول", esc(p.cells)) +
         row("ابعاد (طول × عرض × ضخامت)", `<span class="ltr">${p.dims.map(fa).join(" × ")}</span> میلی‌متر`) +
         row("وزن", `${fa1(p.weight)} کیلوگرم`) + row("شیشه", esc(p.glass)) + row("قاب", esc(p.frame)) +
@@ -682,45 +601,35 @@
       ${table("shield-check", "گارانتی", row("گارانتی", esc(p.warranty)) + row("کاربرد", "آن‌گرید، آف‌گرید و نیروگاه صنعتی"))}`;
     const note = $("#spec-note");
     if (note) note.textContent = "مقادیر الکتریکی در شرایط استاندارد آزمون (STC) هستند.";
-
-    const feats = [
+    $("#features").innerHTML = features([
       ["layers", "طراحی نیم‌سلول", "تلفات کمتر و افت کمتر در سایهٔ جزئی."],
       ["thermometer", "ضریب دمایی پایین", `افت ${fa2(Math.abs(p.tempPmax))}٪ به ازای هر درجه.`],
       ["wind", "تحمل باد و برف", p.load],
       p.bifacial ? ["sun", "تولید از دو طرف", "سطح پشتی، نور بازتابی زمین را هم جذب می‌کند."] : ["sun", "شیشهٔ ضدانعکاس", "جذب بیشتر نور در صبح و عصر."]
-    ];
-    $("#features").innerHTML = feats.map(([ic, t, d]) => `<li>${icon(ic)}<div><b>${esc(t)}</b><br><span>${esc(d)}</span></div></li>`).join("");
+    ]);
     $("#related").innerHTML = SP.filter(x => x.id !== p.id).sort((a, b) => Math.abs(a.watt - p.watt) - Math.abs(b.watt - p.watt)).slice(0, 3).map(solarCard).join("");
     const relLink = $("#related-link"); if (relLink) { relLink.href = "solar.html#panels"; relLink.firstChild.textContent = "همهٔ پنل‌ها"; }
     const qf = $("form[data-quote]");
     if (qf) { qf.dataset.model = p.model; qf.dataset.subject = "استعلام قیمت پنل خورشیدی"; }
-    tabSpy();
-  }
-
-  function tabSpy() {
-    const tabs = $$(".tabs a");
-    if (!("IntersectionObserver" in window)) return;
-    const io = new IntersectionObserver(entries => entries.forEach(en => {
-      if (en.isIntersecting) tabs.forEach(t => t.classList.toggle("is-active", t.getAttribute("href") === "#" + en.target.id));
-    }), { rootMargin: "-40% 0px -55% 0px" });
-    tabs.forEach(t => { const s = $(t.getAttribute("href")); if (s) io.observe(s); });
   }
 
   pages.solar = function () {
     $("#systems").innerHTML = window.SOLAR_SYSTEMS.map(s => `
-      <a class="tile" href="#quote" data-system="${s.key}">
-        <img src="${img(s.img)}" alt="" loading="lazy" width="1200" height="800">
-        <div class="tile__top"><span class="tile__count">${esc(s.tag)}</span><span class="bubble" aria-hidden="true">${icon("arrow-left")}</span></div>
-        <div class="tile__body"><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>
-      </a>`).join("");
+      <article class="card">
+        <div class="card__media card__media--wide"><img src="${img(s.img)}" alt="" loading="lazy" width="1200" height="800"></div>
+        <div class="card__body">
+          <span class="card__kicker">${esc(s.tag)}</span>
+          <h3 class="card__title"><a href="#quote" data-system="${esc(s.key)}">${esc(s.title)}</a></h3>
+          <p class="card__text">${esc(s.text)}</p>
+        </div>
+      </article>`).join("");
     $("#panels-grid").innerHTML = SP.map(solarCard).join("");
     renderFaq($("#faq"), window.SOLAR_FAQ);
 
     const sysSel = $("#s-system");
-    sysSel.insertAdjacentHTML("beforeend", window.SOLAR_SYSTEMS.map(s => `<option value="${s.key}">${esc(s.title)} (${esc(s.tag)})</option>`).join(""));
+    sysSel.insertAdjacentHTML("beforeend", window.SOLAR_SYSTEMS.map(s => `<option value="${esc(s.key)}">${esc(s.title)} (${esc(s.tag)})</option>`).join(""));
     $("#systems").addEventListener("click", e => { const t = e.target.closest("[data-system]"); if (t) sysSel.value = t.dataset.system; });
 
-    // estimate: capacity (kW) → yearly energy, land, value
     const C = window.SOLAR_CALC;
     const reg = $("#c-region"), kwIn = $("#c-kw"), priceIn = $("#c-price");
     reg.innerHTML = C.regions.map((r, i) => `<option value="${r.v}"${i === 1 ? " selected" : ""}>${esc(r.label)}</option>`).join("");
@@ -728,14 +637,13 @@
     let last = null;
     function calc() {
       const kw = num(kwIn.value), psh = parseFloat(reg.value), price = num(priceIn.value);
-      if (kw <= 0) { ["year", "month", "land", "landm2", "value"].forEach(k => (out(k).textContent = "—")); last = null; return; }
+      if (kw <= 0) { ["year", "month", "land", "value"].forEach(k => (out(k).textContent = "—")); last = null; return; }
       const year = kw * psh * 365 * C.pr;
       const ha = (kw / 1000) * C.hectarePerMW;
       out("year").textContent = fa(Math.round(year));
-      out("month").textContent = fa(Math.round(year / 12));
-      out("land").textContent = ha < 0.1 ? fa2(ha) : fa1(ha);
-      out("landm2").textContent = `(${fa(Math.round(ha * 10000))} مترمربع)`;
-      out("value").textContent = price > 0 ? fa(Math.round((year * price) / 1e6)) : "—";
+      out("month").textContent = `${fa(Math.round(year / 12))} کیلووات‌ساعت`;
+      out("land").textContent = `${ha < 0.1 ? fa2(ha) : fa1(ha)} هکتار (${fa(Math.round(ha * 10000))} مترمربع)`;
+      out("value").textContent = price > 0 ? `${fa(Math.round((year * price) / 1e6))} میلیون تومان` : "—";
       last = { kw, year };
     }
     [kwIn, priceIn].forEach(el => el.addEventListener("input", calc));
@@ -753,16 +661,17 @@
   pages.energy = function () {
     const E = window.ENERGY;
     $("#plans-grid").innerHTML = window.ENERGY_PLANS.map(pl => `
-      <article class="plan plan--${pl.key} reveal">
-        <div class="plan__top"><span class="plan__icon">${icon(pl.icon)}</span><span class="plan__tag">${esc(pl.tag)}</span></div>
+      <div class="plan">
+        <span class="plan__icon">${icon(pl.icon)}</span>
+        <span class="card__kicker">${esc(pl.tag)}</span>
         <h3>${esc(pl.title)}</h3>
         <p>${esc(pl.text)}</p>
         <ul>${pl.points.map(x => `<li>${icon("check")}<span>${esc(x)}</span></li>`).join("")}</ul>
         ${pl.key === "free"
-          ? `<a class="btn btn--block btn--primary" href="${TG}" ${ext}>${icon("send")}ربات تلگرام برق آزاد</a>`
-          : `<a class="btn btn--block btn--ghost" href="#quote" data-plan="${pl.key}">درخواست ${esc(pl.title)}</a>`}
-      </article>`).join("");
-    $("#energy-steps").innerHTML = window.ENERGY_STEPS.map((s, i) => `<li><time>${fa(i + 1)}</time><div><b>${esc(s)}</b></div></li>`).join("");
+          ? `<a class="link" href="${TG}" ${ext}>ربات تلگرام برق آزاد${icon("chevron-left")}</a>`
+          : `<a class="link" href="#quote" data-plan="${esc(pl.key)}">درخواست ${esc(pl.title)}${icon("chevron-left")}</a>`}
+      </div>`).join("");
+    $("#energy-steps").innerHTML = window.ENERGY_STEPS.map((s, i) => `<div class="row"><span class="row__num">${fa(i + 1)}</span><span class="row__title">${esc(s)}</span></div>`).join("");
     renderFaq($("#faq"), window.ENERGY_FAQ);
 
     const typeSel = $("#e-type");
@@ -792,18 +701,15 @@
   pages.services = function () {
     const rail = $("#svc-rail"), modal = $("#svc-modal");
     rail.innerHTML = window.SERVICES.map((s, i) => `
-      <article class="xcard" role="listitem"${s.id ? ` id="${s.id}"` : ""}>
+      <article class="xcard" role="listitem"${s.id ? ` id="${esc(s.id)}"` : ""}>
         <img src="${img(s.img)}" alt="" loading="lazy" width="1200" height="900">
         <div class="xcard__text"><span class="xcard__kicker">${esc(s.kicker)}</span><h3 class="xcard__title">${esc(s.headline)}</h3></div>
         <button type="button" class="xcard__more" data-i="${i}" aria-label="بیشتر دربارهٔ ${esc(s.title)}" aria-haspopup="dialog">${icon("plus")}</button>
       </article>`).join("");
-
-    // prev / next (RTL: "next" moves toward the left)
-    const stepW = () => { const c = $(".xcard", rail); return c ? c.getBoundingClientRect().width + 20 : 320; };
+    const stepW = () => { const c = $(".xcard", rail); return c ? c.getBoundingClientRect().width + 18 : 320; };
     $$(".rail-btn").forEach(b => b.addEventListener("click", () => {
       rail.scrollBy({ left: (b.dataset.dir === "next" ? -1 : 1) * stepW(), behavior: reduceMotion ? "auto" : "smooth" });
     }));
-
     let opener = null;
     rail.addEventListener("click", e => {
       const b = e.target.closest(".xcard__more"); if (!b) return;
@@ -815,8 +721,8 @@
       $("#svc-m-text").textContent = s.text;
       $("#svc-m-points").innerHTML = s.points.map(x => `<li>${icon("check")}<span>${esc(x)}</span></li>`).join("");
       const cta = $("#svc-m-cta");
-      if (s.link) { cta.href = s.link; cta.innerHTML = `مشاهدهٔ صفحه${icon("arrow-left")}`; }
-      else { cta.href = "contact.html#quote"; cta.innerHTML = `درخواست این خدمت${icon("arrow-left")}`; }
+      if (s.link) { cta.href = s.link; cta.textContent = "مشاهدهٔ صفحه"; }
+      else { cta.href = "contact.html#quote"; cta.textContent = "درخواست این خدمت"; }
       if (typeof modal.showModal === "function") modal.showModal(); else modal.setAttribute("open", "");
     });
     const close = () => { modal.close ? modal.close() : modal.removeAttribute("open"); };
@@ -836,11 +742,9 @@
   };
 
   /* ---------- boot ---------- */
-  // calculator / eligibility forms are local only; never submit them anywhere
   $$("form:not([data-quote])").forEach(f => f.addEventListener("submit", e => e.preventDefault()));
   renderLayout();
   fillContactBits();
   if (pages[page]) pages[page]();
   initForms();
-  initReveal();
 })();
