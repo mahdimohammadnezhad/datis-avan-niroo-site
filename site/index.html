@@ -10,63 +10,66 @@
   <link rel="apple-touch-icon" href="assets/img/logo/icon-180.png">
   <link rel="preload" href="assets/fonts/Vazirmatn-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="preload" href="assets/img/gas-1.jpg" as="image">
+  <link rel="preload" href="assets/img/open-1.jpg" as="image">
 </head>
 <body data-page="home">
   <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
   <div id="site-header"></div>
 
   <main id="main">
-    <section class="wrap hero">
-      <span class="eyebrow">تأمین، نصب و نگهداری در سراسر ایران</span>
-      <h1>برق مطمئن، همیشه روشن.</h1>
-      <p class="lede">ژنراتور دیزلی و گازی ۲۰۰ تا ۷۵۰ کیلووات، نیروگاه خورشیدی و تأمین برق صنایع از بورس انرژی.</p>
-      <div class="actions">
-        <a class="btn" href="products.html">مشاهدهٔ ژنراتورها</a>
-        <a class="link" href="contact.html#quote">مشاورهٔ رایگان<svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></a>
-      </div>
-    </section>
-    <div class="wrap">
-      <figure class="hero-media" style="margin:0;">
-        <img src="assets/img/gas-1.jpg" alt="ژنراتور گازی صنعتی در موتورخانه" width="1200" height="799" fetchpriority="high">
-        <figcaption class="hero-media__label">ژنراتور گازی · ۶۰۰ کیلووات</figcaption>
-      </figure>
-    </div>
-
-    <section class="sec">
-      <div class="wrap">
-        <div class="head"><div><h2>سه راه برای برق مطمئن</h2><p>برق پشتیبان، تولید از خورشید، یا خرید برق ارزان‌تر از بورس؛ هر سه از یک تیم.</p></div></div>
-        <div class="grid grid--3">
-          <article class="card">
-            <div class="card__media card__media--wide"><img src="assets/img/open-1.jpg" alt="ژنراتور روباز" loading="lazy" width="1200" height="902"></div>
-            <div class="card__body">
-              <span class="card__kicker">۲۰۰ تا ۷۵۰ کیلووات</span>
-              <h3 class="card__title"><a href="products.html">ژنراتور دیزلی و گازی</a></h3>
-              <p class="card__text">تأمین، نصب، تابلو ATS و سرویس دوره‌ای.</p>
-              <div class="card__foot"><span class="link">بیشتر<svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></span></div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card__media card__media--wide"><img src="assets/img/solar-industrial.jpg" alt="نیروگاه خورشیدی صنعتی" loading="lazy" width="1200" height="793"></div>
-            <div class="card__body">
-              <span class="card__kicker">پنل ۵۵۰ تا ۷۵۰ وات</span>
-              <h3 class="card__title"><a href="solar.html">انرژی خورشیدی</a></h3>
-              <p class="card__text">نیروگاه آن‌گرید و آف‌گرید، از سقف تا زمین.</p>
-              <div class="card__foot"><span class="link">بیشتر<svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></span></div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card__media card__media--wide"><img src="assets/img/grid-lines.jpg" alt="خطوط انتقال برق" loading="lazy" width="1200" height="900"></div>
-            <div class="card__body">
-              <span class="card__kicker">دیماند ۱۵۰ کیلووات به بالا</span>
-              <h3 class="card__title"><a href="energy.html">برق صنایع از بورس</a></h3>
-              <p class="card__text">برق عادی، سبز و آزاد، بدون تغییر کنتور.</p>
-              <div class="card__foot"><span class="link">بیشتر<svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></span></div>
-            </div>
-          </article>
+    <div class="tiles">
+      <section class="tile tile--dark tile--hero" aria-labelledby="t-gen">
+        <div class="tile__copy">
+          <h1 id="t-gen">ژنراتور دیزلی و گازی</h1>
+          <p class="tile__sub">برق مطمئن، همیشه روشن.</p>
+          <p class="tile__note">روباز · ۲۰۰ تا ۷۵۰ کیلووات · نصب و سرویس در سراسر ایران</p>
+          <div class="tile__actions">
+            <a class="btn" href="products.html">مشاهدهٔ مدل‌ها</a>
+            <a class="btn btn--line" href="contact.html#quote">استعلام قیمت</a>
+          </div>
         </div>
+        <div class="tile__media tile__media--float">
+          <img src="assets/img/open-1.jpg" alt="ژنراتور دیزلی روباز" width="1200" height="902" fetchpriority="high">
+        </div>
+      </section>
+
+      <section class="tile" aria-labelledby="t-sol">
+        <div class="tile__copy">
+          <h2 id="t-sol">انرژی خورشیدی</h2>
+          <p class="tile__sub">پنل ۵۵۰ تا ۷۵۰ وات. آن‌گرید و آف‌گرید.</p>
+          <div class="tile__actions">
+            <a class="btn" href="solar.html">بیشتر بدانید</a>
+            <a class="btn btn--line" href="solar.html#calc">برآورد تولید</a>
+          </div>
+        </div>
+        <div class="tile__media tile__media--low"><img src="assets/img/solar-farm-2.jpg" alt="نیروگاه خورشیدی" loading="lazy" width="1200" height="800"></div>
+      </section>
+
+      <div class="tiles__grid">
+        <section class="tile tile--half" aria-labelledby="t-en">
+          <div class="tile__copy">
+            <h2 id="t-en">برق صنایع از بورس</h2>
+            <p class="tile__sub">برق عادی، سبز و آزاد؛ بدون تغییر کنتور.</p>
+            <div class="tile__actions">
+              <a class="btn" href="energy.html">بیشتر بدانید</a>
+              <a class="btn btn--line" href="energy.html#check">بررسی شرایط</a>
+            </div>
+          </div>
+          <div class="tile__media"><img src="assets/img/grid-lines.jpg" alt="خطوط انتقال برق" loading="lazy" width="1200" height="900"></div>
+        </section>
+        <section class="tile tile--half tile--dark" aria-labelledby="t-dg">
+          <div class="tile__copy">
+            <h2 id="t-dg">نیروگاه مقیاس کوچک</h2>
+            <p class="tile__sub">برق و حرارت، کنار مصرف.</p>
+            <div class="tile__actions">
+              <a class="btn" href="products.html#fuel-gas">ژنراتور گازی</a>
+              <a class="btn btn--line" href="services.html">خدمات</a>
+            </div>
+          </div>
+          <div class="tile__media"><img src="assets/img/gas-1.jpg" alt="ژنراتور گازی صنعتی در موتورخانه" loading="lazy" width="1200" height="799"></div>
+        </section>
       </div>
-    </section>
+    </div>
 
     <section class="sec">
       <div class="wrap">
