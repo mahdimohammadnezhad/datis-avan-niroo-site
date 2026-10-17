@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>انرژی خورشیدی — پنل و نیروگاه خورشیدی | داتیس آوان نیرو</title>
   <meta name="description" content="پنل خورشیدی ۵۵۰ تا ۷۵۰ وات و طراحی و اجرای نیروگاه خورشیدی آن‌گرید، آف‌گرید و صنعتی؛ با برآورد تولید برق و زمین لازم.">
-  <meta name="theme-color" content="#f5f5f7">
+  <meta name="theme-color" content="#242058">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/img/logo/icon-64.png">
   <link rel="apple-touch-icon" href="assets/img/logo/icon-180.png">
   <link rel="preload" href="assets/fonts/Vazirmatn-wght.woff2" as="font" type="font/woff2" crossorigin>
@@ -16,85 +16,136 @@
   <div id="site-header"></div>
 
   <main id="main">
-    <section class="wrap hero">
-      <nav class="crumbs" style="justify-content:center;" aria-label="مسیر صفحه"><a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><span aria-current="page">انرژی خورشیدی</span></nav>
-      <h1>برق خورشیدی.</h1>
-      <p class="lede">پنل‌های مونوکریستال و TOPCon، طراحی و اجرای نیروگاه متصل به شبکه، آف‌گرید و هیبرید؛ از مشاوره و اخذ مجوز تا نصب و پایش تولید.</p>
-      <div class="actions">
-        <a class="btn" href="#calc">برآورد تولید برق</a>
-        <a class="link" href="#quote">مشاورهٔ رایگان<svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></a>
-      </div>
-    </section>
-    <div class="wrap">
-      <figure class="hero-media" style="margin:0;">
-        <img src="assets/img/solar-farm.jpg" alt="مزرعهٔ پنل خورشیدی" width="1200" height="800" fetchpriority="high">
-        <figcaption class="hero-media__label">آن‌گرید و آف‌گرید · پنل ۵۵۰ تا ۷۵۰ وات · گارانتی شرکتی</figcaption>
-      </figure>
-    </div>
-
-    <section class="sec">
-      <div class="wrap">
-        <div class="head"><div><h2>انواع سیستم</h2></div></div>
-        <div class="grid grid--4" id="systems"></div>
+    <section class="page-hero page-hero--photo frame on-dark">
+      <div class="page-hero__bg"><img src="assets/img/solar-farm.jpg" alt="" width="1200" height="800" fetchpriority="high"></div>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="مسیر صفحه">
+          <a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><span aria-current="page">انرژی خورشیدی</span>
+        </nav>
+        <h1>برق <b>خورشیدی</b>.</h1>
+        <p>پنل‌های مونوکریستال و TOPCon، طراحی و اجرای نیروگاه متصل به شبکه، آف‌گرید و هیبرید؛ از مشاوره و اخذ مجوز تا نصب و پایش تولید.</p>
+        <ul class="facts">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-sun"></use></svg>پنل <b>۵۵۰ تا ۷۵۰</b> وات</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-shield-check"></use></svg>گارانتی شرکتی</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-plug-zap"></use></svg>آن‌گرید و آف‌گرید</li>
+        </ul>
+        <div class="hero__actions" style="margin-top: 28px;">
+          <a class="cta-pair" href="#calc"><span class="btn btn--white">برآورد تولید برق</span><span class="cta-pair__arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg></span></a>
+          <a class="text-link" href="#quote">مشاورهٔ رایگان</a>
+        </div>
       </div>
     </section>
 
-    <section class="sec" id="calc">
-      <div class="wrap">
-        <div class="head"><div><h2>برآورد تولید برق و زمین لازم</h2><p>محاسبه فقط بر اساس پنل ۵۵۰ واتی انجام می‌شود.</p></div></div>
-        <div class="panel">
-          <div class="calc">
-            <form class="calc__form" aria-label="برآورد تولید برق خورشیدی">
-              <div class="field"><label for="c-kw">ظرفیت پیشنهادی سیستم (کیلووات)</label><input id="c-kw" inputmode="numeric" value="۱۰۰۰" dir="ltr"></div>
-              <div class="field"><label for="c-region">میزان تابش منطقه</label><select id="c-region"></select></div>
-              <div class="field"><label for="c-price">نرخ فروش برق (تومان بر کیلووات‌ساعت)</label><input id="c-price" inputmode="numeric" dir="ltr" placeholder="اختیاری"></div>
-            </form>
-            <div class="calc__out" aria-live="polite">
-              <div class="calc__big"><span>تولید سالانهٔ تقریبی (کیلووات‌ساعت)</span><b data-out="year">—</b></div>
-              <div class="calc__list">
-                <div class="row"><span class="row__main row__title">میانگین ماهانه</span><span class="row__end" data-out="month">—</span></div>
-                <div class="row"><span class="row__main row__title">زمین لازم</span><span class="row__end" data-out="land">—</span></div>
-                <div class="row"><span class="row__main row__title">ارزش برق در سال</span><span class="row__end" data-out="value">—</span></div>
-              </div>
-              <button type="button" class="btn btn--block" id="calc-cta">دریافت پیشنهاد برای این ظرفیت</button>
-              <p class="calc__note">برای هر مگاوات حدود ۱٫۵ هکتار زمین لازم است. این برآورد اولیه است.</p>
+    <!-- System types -->
+    <section class="section">
+      <div class="container">
+        <div class="sec-head"><div class="sec-head__text"><h2>انواع سیستم خورشیدی</h2></div></div>
+        <div class="bento" id="systems"></div>
+      </div>
+    </section>
+
+    <!-- Estimate -->
+    <section class="section section--white" id="calc">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-head__text">
+            <h2>برآورد تولید برق و زمین لازم</h2>
+            <p>محاسبه فقط بر اساس پنل ۵۵۰ واتی انجام می‌شود.</p>
+          </div>
+        </div>
+        <div class="calc">
+          <form class="calc__form" aria-label="برآورد تولید برق خورشیدی">
+            <div class="field">
+              <label for="c-kw">ظرفیت پیشنهادی سیستم (کیلووات)</label>
+              <input id="c-kw" inputmode="numeric" value="۱۰۰۰" dir="ltr">
+              <span class="hint">عدد نمونه است؛ ظرفیت مورد نظر را وارد کنید.</span>
             </div>
+            <div class="field">
+              <label for="c-region">میزان تابش منطقه</label>
+              <select id="c-region"></select>
+            </div>
+            <div class="field">
+              <label for="c-price">نرخ فروش برق (تومان بر کیلووات‌ساعت)</label>
+              <input id="c-price" inputmode="numeric" dir="ltr" placeholder="اختیاری">
+              <span class="hint">برای برآورد ارزش برق تولیدی.</span>
+            </div>
+          </form>
+          <div class="calc__out" aria-live="polite">
+            <div class="calc__grid">
+              <div class="calc__cell calc__cell--hl"><span>تولید سالانهٔ تقریبی</span><b data-out="year">—</b><small>کیلووات‌ساعت</small></div>
+              <div class="calc__cell"><span>میانگین تولید ماهانه</span><b data-out="month">—</b><small>کیلووات‌ساعت</small></div>
+              <div class="calc__cell"><span>زمین لازم</span><b data-out="land">—</b><small>هکتار</small><small data-out="landm2"></small></div>
+              <div class="calc__cell" style="grid-column: 1 / -1;"><span>ارزش برق تولیدی در سال</span><b data-out="value">—</b><small>میلیون تومان</small></div>
+            </div>
+            <button type="button" class="btn btn--primary btn--block" id="calc-cta"><svg class="icon" aria-hidden="true"><use href="#i-file-text"></use></svg>دریافت پیشنهاد برای این ظرفیت</button>
+            <p class="calc__note">برای هر مگاوات حدود ۱٫۵ هکتار زمین لازم است. این برآورد اولیه است.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="sec" id="panels">
-      <div class="wrap">
-        <div class="head"><div><h2>پنل‌های خورشیدی</h2><p>۵۵۰ تا ۷۵۰ وات، با گارانتی شرکتی.</p></div></div>
-        <div class="grid" id="panels-grid"></div>
+    <!-- Panels -->
+    <section class="section" id="panels">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-head__text"><h2>پنل‌های خورشیدی</h2><p>۵۵۰ تا ۷۵۰ وات، با گارانتی شرکتی.</p></div>
+        </div>
+        <div class="grid-products" id="panels-grid"></div>
       </div>
     </section>
 
-    <section class="sec">
-      <div class="wrap wrap--read">
-        <div class="head"><div><h2>سؤالات متداول</h2></div></div>
-        <div class="panel faq" id="faq"></div>
-      </div>
-    </section>
-
-    <section class="sec" id="quote">
-      <div class="wrap quote">
+    <!-- Visual: on-grid & off-grid -->
+    <section class="section section--white">
+      <div class="container split">
+        <div class="split__media reveal">
+          <img src="assets/img/solar-industrial.jpg" alt="سازهٔ پنل خورشیدی صنعتی" loading="lazy" width="1200" height="793">
+          <div class="split__badge"><strong>آن‌گرید و آف‌گرید</strong></div>
+        </div>
         <div>
-          <h2>طراحی نیروگاه را رایگان بگیرید.</h2>
-          <p class="lede" style="margin-top:10px;">طرح اولیه، ظرفیت و برآورد هزینه را برایتان آماده می‌کنیم.</p>
-          <div class="panel" style="margin-top:22px;">
-            <a class="row" href="tel:+989156202183"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><div class="row__main"><span class="row__title" data-site="phone"></span><span class="row__text">تلفن و واتس‌اپ</span></div></a>
-            <a class="row" data-site="whatsapp" href="#"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"></use></svg><div class="row__main"><span class="row__title">پیام در واتس‌اپ</span><span class="row__text">پاسخ سریع در ساعات کاری</span></div><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></a>
-            
+          <h2>هزینهٔ برق کمتر، برق مطمئن‌تر</h2>
+          <ul class="checklist">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-circle-check"></use></svg><div><b>کاهش قبض برق</b></div></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-circle-check"></use></svg><div><b>فروش برق به شبکه</b></div></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-circle-check"></use></svg><div><b>سهم برق تجدیدپذیر صنایع</b></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="container faq-grid">
+        <div><h2>سؤالات متداول</h2></div>
+        <div class="faq" id="faq"></div>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="cta frame on-dark" id="quote">
+      <div class="cta__bg"><img src="assets/img/solar-install.jpg" alt="" loading="lazy" width="1200" height="675"></div>
+      <div class="container">
+        <div>
+          <h2>طراحی نیروگاه خورشیدی را <b>رایگان</b> بگیرید.</h2>
+          <div class="contacts">
+            <a href="tel:+989156202183"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span><span><small>تلفن</small><b data-site="phone"></b></span></a>
+            <a data-site="whatsapp" href="#"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"></use></svg></span><span><small>واتس‌اپ</small><b>پیام بدهید</b></span></a>
           </div>
         </div>
-        <div class="panel panel__pad">
+        <div class="form-card">
+          <h3>درخواست نیروگاه یا پنل خورشیدی</h3>
           <form data-quote data-subject="درخواست نیروگاه خورشیدی" novalidate>
-            <div class="form-grid"><div class="field"><label for="s-name">نام و نام خانوادگی<span class="req" aria-hidden="true">*</span></label><input id="s-name" name="name" autocomplete="name" required aria-describedby="s-name-err"><span class="error" id="s-name-err" role="alert"></span></div><div class="field"><label for="s-phone">شمارهٔ تماس<span class="req" aria-hidden="true">*</span></label><input id="s-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="s-phone-err"><span class="error" id="s-phone-err" role="alert"></span></div><div class="field"><label for="s-system">نوع سیستم</label><select id="s-system" name="system"><option value="">هنوز نمی‌دانم</option></select></div><div class="field"><label for="s-city">شهر محل نصب</label><input id="s-city" name="city" autocomplete="address-level2"></div><div class="field"><label for="s-kw">ظرفیت مورد نظر (کیلووات)</label><input id="s-kw" name="kw" inputmode="numeric"></div><div class="field"><label for="s-area">زمین یا سقف (مترمربع)</label><input id="s-area" name="area" inputmode="numeric"></div><div class="field full"><label for="s-msg">توضیحات</label><textarea id="s-msg" name="message"></textarea></div></div>
+            <div class="form-grid">
+              <div class="field"><label for="s-name">نام و نام خانوادگی<span class="req" aria-hidden="true">*</span></label><input id="s-name" name="name" autocomplete="name" required aria-describedby="s-name-err"><span class="error" id="s-name-err" role="alert"></span></div>
+              <div class="field"><label for="s-phone">شمارهٔ تماس<span class="req" aria-hidden="true">*</span></label><input id="s-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="s-phone-err"><span class="error" id="s-phone-err" role="alert"></span></div>
+              <div class="field"><label for="s-system">نوع سیستم</label><select id="s-system" name="system"><option value="">هنوز نمی‌دانم</option></select></div>
+              <div class="field"><label for="s-city">شهر محل نصب</label><input id="s-city" name="city" autocomplete="address-level2"></div>
+              <div class="field"><label for="s-kw">ظرفیت مورد نظر (کیلووات)</label><input id="s-kw" name="kw" inputmode="numeric"></div>
+              <div class="field"><label for="s-area">زمین یا سقف (مترمربع)</label><input id="s-area" name="area" inputmode="numeric"></div>
+              <div class="field full"><label for="s-msg">توضیحات</label><textarea id="s-msg" name="message"></textarea></div>
+            </div>
             <div class="form-foot">
-              <small>اطلاعات شما فقط برای همین درخواست استفاده می‌شود.</small>
-              <button class="btn" type="submit">ارسال درخواست</button>
+              <small>با شما ظرف یک روز کاری تماس می‌گیریم.</small>
+              <button class="btn btn--primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg>ارسال درخواست</button>
             </div>
             <div class="form-status" role="status" aria-live="polite"></div>
           </form>

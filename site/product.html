@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>مشخصات محصول | داتیس آوان نیرو</title>
-  <meta name="description" content="مشخصات فنی کامل و استعلام قیمت از داتیس آوان نیرو.">
-  <meta name="theme-color" content="#f5f5f7">
+  <title>مشخصات دیزل ژنراتور | داتیس آوان نیرو</title>
+  <meta name="description" content="مشخصات فنی کامل دیزل ژنراتور و استعلام قیمت از داتیس آوان نیرو.">
+  <meta name="theme-color" content="#242058">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/img/logo/icon-64.png">
   <link rel="apple-touch-icon" href="assets/img/logo/icon-180.png">
   <link rel="preload" href="assets/fonts/Vazirmatn-wght.woff2" as="font" type="font/woff2" crossorigin>
@@ -16,47 +16,64 @@
   <div id="site-header"></div>
 
   <main id="main">
-    <section class="wrap page-hero">
-      <nav class="crumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><a href="products.html" id="pd-cat">ژنراتور</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><span aria-current="page" id="pd-crumb" class="ltr"></span></nav>
-      <span class="eyebrow" id="pd-kicker" style="margin-top:14px;"></span>
-      <h1 id="pd-title" style="margin-top:6px;">در حال بارگذاری…</h1>
-      <p class="lede" id="pd-sub"></p>
-    </section>
-
-    <section class="wrap" id="product"></section>
-
-    <section class="sec pd-only" id="specs-sec">
-      <div class="wrap">
-        <div class="head"><div><h2>مشخصات فنی</h2></div></div>
-        <div class="spec-groups" id="specs"></div>
-        <p class="note" id="spec-note"></p>
+    <section class="page-hero frame blueprint on-dark">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="مسیر صفحه">
+          <a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg>
+          <a href="products.html" id="pd-cat">ژنراتور</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg>
+          <span aria-current="page" id="pd-crumb" class="ltr"></span>
+        </nav>
+        <h1 id="pd-title">در حال بارگذاری…</h1>
+        <p id="pd-sub"></p>
       </div>
     </section>
 
-    <section class="sec pd-only">
-      <div class="wrap wrap--read">
-        <div class="head"><div><h2>ویژگی‌ها</h2></div></div>
-        <div class="panel" id="features"></div>
+    <section class="section" style="padding-top: 40px;">
+      <div class="container" id="product"></div>
+    </section>
+
+    <section class="section section--white pd-only" style="padding-top: 48px;">
+      <div class="container">
+        <nav class="tabs" aria-label="بخش‌های صفحه">
+          <a href="#specs-sec" class="is-active">مشخصات فنی</a>
+          <a href="#features-sec">ویژگی‌ها</a>
+          <a href="#quote">استعلام قیمت</a>
+        </nav>
+        <div id="specs-sec">
+          <h2 class="sr-only">مشخصات فنی</h2>
+          <div class="spec-groups" id="specs"></div>
+          <p class="text-muted" id="spec-note" style="font-size:.875rem; margin-top:16px;"></p>
+        </div>
+        <div id="features-sec" style="margin-top: 56px;">
+          <h2>ویژگی‌ها</h2>
+          <ul class="features" id="features"></ul>
+        </div>
       </div>
     </section>
 
-    <section class="sec pd-only" id="quote">
-      <div class="wrap quote">
+    <section class="cta frame on-dark pd-only" id="quote">
+      <div class="cta__bg"><img src="assets/img/install-open.jpg" alt="" loading="lazy" width="1200" height="800"></div>
+      <div class="container">
         <div>
-          <h2>قیمت این مدل را بپرسید.</h2>
-          <p class="lede" style="margin-top:10px;">قیمت نهایی به تجهیزات جانبی، نصب و حمل بستگی دارد.</p>
-          <div class="panel" style="margin-top:22px;">
-            <a class="row" href="tel:+989156202183"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><div class="row__main"><span class="row__title" data-site="phone"></span><span class="row__text">تلفن و واتس‌اپ</span></div></a>
-            <a class="row" data-site="whatsapp" href="#"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"></use></svg><div class="row__main"><span class="row__title">پیام در واتس‌اپ</span><span class="row__text">پاسخ سریع در ساعات کاری</span></div><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></a>
-            
+          <h2>قیمت <b>این مدل</b> را بپرسید.</h2>
+          <div class="contacts">
+            <a href="tel:+989156202183"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span><span><small>تلفن</small><b data-site="phone"></b></span></a>
+            <a data-site="whatsapp" href="#"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"></use></svg></span><span><small>واتس‌اپ</small><b>پیام بدهید</b></span></a>
           </div>
         </div>
-        <div class="panel panel__pad">
+        <div class="form-card">
+          <h3>فرم استعلام قیمت</h3>
           <form data-quote novalidate>
-            <div class="form-grid"><div class="field"><label for="p-name">نام و نام خانوادگی<span class="req" aria-hidden="true">*</span></label><input id="p-name" name="name" autocomplete="name" required aria-describedby="p-name-err"><span class="error" id="p-name-err" role="alert"></span></div><div class="field"><label for="p-phone">شمارهٔ تماس<span class="req" aria-hidden="true">*</span></label><input id="p-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="p-phone-err"><span class="error" id="p-phone-err" role="alert"></span></div><div class="field"><label for="p-model">مدل</label><select id="p-model" name="model"><option value="">انتخاب مدل</option></select></div><div class="field"><label for="p-city">شهر محل نصب</label><input id="p-city" name="city" autocomplete="address-level2"></div><div class="field full"><label for="p-msg">توضیحات</label><textarea id="p-msg" name="message" placeholder="تعداد، نیاز به ATS، نصب و حمل"></textarea></div></div>
+            <div class="form-grid">
+              <div class="field"><label for="p-name">نام و نام خانوادگی<span class="req" aria-hidden="true">*</span></label><input id="p-name" name="name" autocomplete="name" required aria-describedby="p-name-err"><span class="error" id="p-name-err" role="alert"></span></div>
+              <div class="field"><label for="p-phone">شمارهٔ تماس<span class="req" aria-hidden="true">*</span></label><input id="p-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="p-phone-err"><span class="error" id="p-phone-err" role="alert"></span></div>
+              <div class="field"><label for="p-model">مدل</label><select id="p-model" name="model"><option value="">انتخاب مدل</option></select></div>
+              <div class="field"><label for="p-city">شهر محل نصب</label><input id="p-city" name="city" autocomplete="address-level2"></div>
+              <div class="field full"><label for="p-msg">توضیحات</label><textarea id="p-msg" name="message" placeholder="تعداد، نیاز به ATS، نصب و حمل"></textarea></div>
+            </div>
             <div class="form-foot">
-              <small>اطلاعات شما فقط برای همین درخواست استفاده می‌شود.</small>
-              <button class="btn" type="submit">ارسال درخواست</button>
+              <small>با شما ظرف یک روز کاری تماس می‌گیریم.</small>
+              <button class="btn btn--primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg>ارسال درخواست</button>
             </div>
             <div class="form-status" role="status" aria-live="polite"></div>
           </form>
@@ -64,10 +81,15 @@
       </div>
     </section>
 
-    <section class="sec pd-only">
-      <div class="wrap">
-        <div class="head"><div><h2>مدل‌های مشابه</h2></div><a class="link" href="products.html" id="related-link">همهٔ ژنراتورها<svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></a></div>
-        <div class="grid" id="related"></div>
+    <section class="section related pd-only">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-head__text">
+            <h2>مدل‌های مشابه</h2>
+          </div>
+          <a class="link-arrow" href="products.html" id="related-link">همهٔ ژنراتورها<svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg></a>
+        </div>
+        <div class="grid-products" id="related"></div>
       </div>
     </section>
   </main>

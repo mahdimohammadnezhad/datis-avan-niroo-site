@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>تماس با ما | داتیس آوان نیرو</title>
-  <meta name="description" content="تماس با داتیس آوان نیرو برای استعلام قیمت ژنراتور، نیروگاه خورشیدی و برق صنایع از بورس.">
-  <meta name="theme-color" content="#f5f5f7">
+  <title>تماس با ما و استعلام قیمت | داتیس آوان نیرو</title>
+  <meta name="description" content="برای استعلام قیمت دیزل ژنراتور، مشاورهٔ رایگان، نصب یا سرویس با داتیس آوان نیرو تماس بگیرید.">
+  <meta name="theme-color" content="#242058">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/img/logo/icon-64.png">
   <link rel="apple-touch-icon" href="assets/img/logo/icon-180.png">
   <link rel="preload" href="assets/fonts/Vazirmatn-wght.woff2" as="font" type="font/woff2" crossorigin>
@@ -16,43 +16,56 @@
   <div id="site-header"></div>
 
   <main id="main">
-    <section class="wrap page-hero">
-      <nav class="crumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><span aria-current="page">تماس</span></nav>
-      <h1>تماس با ما</h1>
-      <p class="lede">مشاوره رایگان است.</p>
-      
+    <section class="page-hero frame blueprint on-dark">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="مسیر صفحه">
+          <a href="index.html">خانه</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><span aria-current="page">تماس با ما</span>
+        </nav>
+        <h1>تماس با ما</h1>
+        <p>مشاوره رایگان است.</p>
+      </div>
     </section>
 
-    <section class="sec" style="padding-top:8px;">
-      <div class="wrap quote">
-        <div style="display:grid; gap:14px;">
-          <div class="panel contact-rows">
-            <a class="row" href="tel:+989156202183"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><div class="row__main"><span class="row__title" data-site="phone"></span><span class="row__text">تلفن و واتس‌اپ</span></div></a>
-            <a class="row" data-site="whatsapp" href="#"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"></use></svg><div class="row__main"><span class="row__title">پیام در واتس‌اپ</span></div><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></a>
-            <a class="row" data-site="telegram" href="#"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg><div class="row__main"><span class="row__title">ربات تلگرام برق آزاد</span><span class="row__text ltr">@DOT_ON_bot</span></div><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></a>
-            <a class="row" data-site="email" href="#"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg><div class="row__main"><span class="row__title">ایمیل</span></div></a>
-            <div class="row"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg><div class="row__main"><span class="row__title" data-site="address"></span><span class="row__text" data-site="workshop"></span></div></div>
-            <div class="row"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg><div class="row__main"><span class="row__title">ساعات کاری</span><span class="row__text" data-site="hours"></span></div></div>
-          </div>
+    <section class="section" style="padding-top: 40px;">
+      <div class="container contact-grid">
+        <div class="info-cards">
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span><div><h3>تلفن و واتس‌اپ</h3><a data-site="phone" href="#" style="font-size:1.15rem; font-weight:800;"></a><br><a data-site="whatsapp" href="#" style="color: var(--orange-text); font-weight: 700;">گفتگو در واتس‌اپ</a></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg></span><div><h3>ربات تلگرام برق آزاد</h3><a data-site="telegram" href="#" style="font-weight:700;"></a></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></span><div><h3>ایمیل</h3><a class="ltr" data-site="email" href="#"></a></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg></span><div><h3>نشانی</h3><p data-site="address"></p><p data-site="workshop" class="text-muted" style="font-size:.9375rem;"></p></div></div>
+          <div class="info-card"><span class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg></span><div><h3>ساعات کاری</h3><p data-site="hours"></p></div></div>
           <!-- TODO: کد جاسازی نقشهٔ نشان یا بلد را جایگزین این کادر کنید -->
-          <div class="panel map-box">نقشهٔ محل دفتر</div>
+          <div class="map-box"><div><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg><b>نقشهٔ محل دفتر</b><br><span style="font-size:.875rem;">کد نقشهٔ نشان / بلد / گوگل را اینجا قرار دهید.</span></div></div>
         </div>
-        <div class="panel panel__pad" id="quote">
-          <h2 style="font-size:24px; margin-bottom:18px;">فرم استعلام قیمت</h2>
+
+        <div class="form-card" id="quote" style="box-shadow: var(--shadow);">
+          <h2 style="font-size: 1.4rem;">فرم استعلام قیمت</h2>
           <form data-quote novalidate>
             <div class="form-grid">
-              <div class="field"><label for="c-name">نام و نام خانوادگی<span class="req" aria-hidden="true">*</span></label><input id="c-name" name="name" autocomplete="name" required aria-describedby="c-name-err"><span class="error" id="c-name-err" role="alert"></span></div><div class="field"><label for="c-phone">شمارهٔ تماس<span class="req" aria-hidden="true">*</span></label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="c-phone-err"><span class="error" id="c-phone-err" role="alert"></span></div>
+              <div class="field"><label for="c-name">نام و نام خانوادگی<span class="req" aria-hidden="true">*</span></label><input id="c-name" name="name" autocomplete="name" required aria-describedby="c-name-err"><span class="error" id="c-name-err" role="alert"></span></div>
               <div class="field"><label for="c-company">شرکت / سازمان</label><input id="c-company" name="company" autocomplete="organization"></div>
+              <div class="field"><label for="c-phone">شمارهٔ تماس<span class="req" aria-hidden="true">*</span></label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="c-phone-err"><span class="error" id="c-phone-err" role="alert"></span></div>
               <div class="field"><label for="c-email">ایمیل</label><input id="c-email" name="email" type="email" autocomplete="email" dir="ltr" aria-describedby="c-email-err"><span class="error" id="c-email-err" role="alert"></span></div>
-              <div class="field"><label for="c-need">نوع درخواست</label><select id="c-need" name="need"><option value="genset">خرید ژنراتور دیزلی یا گازی</option><option value="dg">نیروگاه مقیاس کوچک (DG)</option><option value="solar">پنل یا نیروگاه خورشیدی</option><option value="energy">تأمین برق صنایع از بورس</option><option value="parts">قطعات یدکی و مواد مصرفی</option><option value="rent">اجارهٔ ژنراتور</option><option value="install">نصب و راه‌اندازی</option><option value="service">سرویس و تعمیرات</option><option value="ats">تابلو ATS / سنکرون</option></select></div>
               <div class="field"><label for="c-model">مدل مورد نظر</label><select id="c-model" name="model"><option value="">هنوز انتخاب نکرده‌ام</option></select></div>
               <div class="field"><label for="c-power">توان مورد نیاز (کیلووات)</label><input id="c-power" name="power" inputmode="numeric" placeholder="مثلاً ۳۶۰"></div>
               <div class="field"><label for="c-city">شهر محل نصب</label><input id="c-city" name="city" autocomplete="address-level2"></div>
+              <div class="field">
+                <label for="c-need">نوع درخواست</label>
+                <select id="c-need" name="need">
+                  <option value="genset">خرید ژنراتور دیزلی یا گازی</option>
+                  <option value="solar">پنل یا نیروگاه خورشیدی</option>
+                  <option value="energy">تأمین برق صنایع از بورس</option>
+                  <option value="rent">اجارهٔ ژنراتور</option>
+                  <option value="install">نصب و راه‌اندازی</option>
+                  <option value="service">سرویس و تعمیرات</option>
+                  <option value="ats">تابلو ATS / سنکرون</option>
+                </select>
+              </div>
               <div class="field full"><label for="c-msg">توضیحات</label><textarea id="c-msg" name="message" placeholder="کاربری و محل نصب"></textarea></div>
             </div>
             <div class="form-foot">
-              <small>اطلاعات شما فقط برای همین درخواست استفاده می‌شود.</small>
-              <button class="btn" type="submit">ارسال درخواست</button>
+              <small>اطلاعات شما فقط برای پاسخ به همین درخواست استفاده می‌شود.</small>
+              <button class="btn btn--primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg>ارسال درخواست</button>
             </div>
             <div class="form-status" role="status" aria-live="polite"></div>
           </form>
