@@ -329,7 +329,11 @@
         if (!S.email) { const card = el.closest(".info-card"); (card || el).hidden = true; return; }
         el.textContent = S.email; if (el.tagName === "A") el.href = "mailto:" + S.email;
       }
-      else if (S[key] != null) el.textContent = S[key];
+      else if (key === "map") {
+        if (!S.mapUrl) { el.hidden = true; return; }
+        el.href = S.mapUrl; el.target = "_blank"; el.rel = "noopener";
+      }
+      else if (S[key] != null) { el.textContent = S[key]; if (!S[key]) el.hidden = true; }
     });
   }
 
@@ -394,18 +398,13 @@
             });
             if (data.message) lines.push("", data.message);
             const subject = (form.dataset.subject || "استعلام قیمت") + (data.model ? " — " + data.model : "");
-            if (S.email) {
-              location.href = `mailto:${S.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-              show(true, `برای ارسال، برنامهٔ ایمیل شما باز می‌شود. سریع‌تر: <a href="${WA}" ${ext}>پیام در واتس‌اپ</a> یا تماس با <a href="${TEL}">${PHONE}</a>.`);
-            } else {
-              // No mailbox configured: hand the request to the company's own WhatsApp
-              // number instead of an address nobody reads.
-              const a = document.createElement("a");
-              a.href = `${WA}?text=${encodeURIComponent([subject, "", ...lines].join("\n"))}`;
-              a.target = "_blank"; a.rel = "noopener noreferrer";
-              document.body.appendChild(a); a.click(); a.remove();
-              show(true, `پیام شما در واتس‌اپ آماده شد؛ برای ثبت درخواست، آن را در واتس‌اپ ارسال کنید. اگر باز نشد با <a href="${TEL}">${PHONE}</a> تماس بگیرید.`);
-            }
+            // No form backend: hand the request to the company's WhatsApp. A mailto:
+            // link would depend on the visitor having a mail app set up.
+            const a = document.createElement("a");
+            a.href = `${WA}?text=${encodeURIComponent([subject, "", ...lines].join("\n"))}`;
+            a.target = "_blank"; a.rel = "noopener noreferrer";
+            document.body.appendChild(a); a.click(); a.remove();
+            show(true, `پیام شما در واتس‌اپ آماده شد؛ برای ثبت درخواست، آن را در واتس‌اپ ارسال کنید. اگر باز نشد با <a href="${TEL}">${PHONE}</a> تماس بگیرید.`);
           }
         } catch (err) {
           show(false, `ارسال انجام نشد. لطفاً دوباره تلاش کنید یا با <a href="${TEL}">${PHONE}</a> تماس بگیرید.`);

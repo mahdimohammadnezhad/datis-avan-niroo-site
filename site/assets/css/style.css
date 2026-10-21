@@ -765,6 +765,10 @@ body { padding-bottom: 84px; }
               linear-gradient(90deg, rgba(36,32,88,.06) 1px, transparent 1px) 0 0 / 24px 24px;
 }
 .map-box .icon { width: 40px; height: 40px; color: var(--orange-text); margin: 0 auto 8px; }
+a.map-box { aspect-ratio: auto; min-height: 180px; color: var(--ink-2); transition: border-color .2s, box-shadow .2s; }
+a.map-box .icon { display: block; }
+a.map-box b { color: var(--navy); }
+a.map-box:hover { border-color: var(--orange-text); box-shadow: var(--shadow); }
 .values { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
 .value { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 24px; }
 .value .icon { width: 30px; height: 30px; color: var(--orange-text); margin-bottom: 12px; }
